@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19528" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PerfilView" customModule="Fourbank" customModuleProvider="target">
+            <connections>
+                <outlet property="dataLabel" destination="D1Q-hd-xtE" id="ah8-q5-pTI"/>
+                <outlet property="dataModifyStackView" destination="17a-oi-Tvu" id="UB0-hY-obN"/>
+                <outlet property="dataTextField" destination="lO2-sx-gnS" id="57j-qN-xWF"/>
+                <outlet property="perfilTableView" destination="Nq2-yV-YPf" id="xgF-W2-kNa"/>
+                <outlet property="tabBarNavigation" destination="F8A-wd-c1k" id="jRk-Z7-5S6"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PQw-2w-cN3">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <color key="barTintColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <textAttributes key="titleTextAttributes">
+                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                        <color key="textColor" red="1" green="0.32156862749999998" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </textAttributes>
+                    <items>
+                        <navigationItem title="Perfil" id="9cz-jH-VOm">
+                            <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.backward" catalog="system" id="ZQG-T9-zwg">
+                                <color key="tintColor" red="1" green="0.32156862749999998" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="backButton:" destination="-1" id="A7q-qL-UF0"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+                <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F8A-wd-c1k">
+                    <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <items>
+                        <tabBarItem title="Home" image="homekit" catalog="system" id="VFc-wD-Y8b"/>
+                        <tabBarItem enabled="NO" title="Perfil" image="person.fill" catalog="system" id="726-WB-dMz"/>
+                    </items>
+                    <color key="barTintColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </tabBar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ESL-jB-Sow">
+                    <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ix1-OX-IGw">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                            <subviews>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Nq2-yV-YPf">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                </tableView>
+                                <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="17a-oi-Tvu">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D1Q-hd-xtE">
+                                            <rect key="frame" x="0.0" y="0.0" width="45" height="0.0"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                            <color key="textColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lO2-sx-gnS">
+                                            <rect key="frame" x="55" y="0.0" width="312" height="0.0"/>
+                                            <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fjn-ft-HOy">
+                                            <rect key="frame" x="377" y="0.0" width="37" height="0.0"/>
+                                            <color key="tintColor" red="0.80000000000000004" green="0.25882352939999997" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" image="chevron.forward" catalog="system"/>
+                                            <connections>
+                                                <action selector="putDataButton:" destination="-1" eventType="touchUpInside" id="r7H-LT-n5I"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="ix1-OX-IGw" secondAttribute="bottom" id="2sc-e9-tw7"/>
+                        <constraint firstItem="ix1-OX-IGw" firstAttribute="leading" secondItem="ESL-jB-Sow" secondAttribute="leading" id="FRB-KD-6tY"/>
+                        <constraint firstAttribute="trailing" secondItem="ix1-OX-IGw" secondAttribute="trailing" id="bRZ-b8-F2G"/>
+                        <constraint firstItem="ix1-OX-IGw" firstAttribute="top" secondItem="ESL-jB-Sow" secondAttribute="top" id="p7k-Fb-9UM"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="PQw-2w-cN3" secondAttribute="trailing" id="HiH-Vf-bY9"/>
+                <constraint firstItem="PQw-2w-cN3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="IZ6-3d-3Gy"/>
+                <constraint firstItem="ESL-jB-Sow" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="MRs-S3-q1p"/>
+                <constraint firstItem="F8A-wd-c1k" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="WRd-qf-Gdx"/>
+                <constraint firstItem="ESL-jB-Sow" firstAttribute="top" secondItem="PQw-2w-cN3" secondAttribute="bottom" id="Zit-Kz-BhA"/>
+                <constraint firstItem="F8A-wd-c1k" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="cJI-fJ-RJq"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="F8A-wd-c1k" secondAttribute="bottom" id="fAw-d8-W0R"/>
+                <constraint firstItem="F8A-wd-c1k" firstAttribute="top" secondItem="ESL-jB-Sow" secondAttribute="bottom" id="ifc-LC-Wot"/>
+                <constraint firstItem="PQw-2w-cN3" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="tBs-Jv-WJS"/>
+                <constraint firstItem="ESL-jB-Sow" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="tpS-mL-e1H"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="93.75"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="chevron.forward" catalog="system" width="96" height="128"/>
+        <image name="homekit" catalog="system" width="128" height="106"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
