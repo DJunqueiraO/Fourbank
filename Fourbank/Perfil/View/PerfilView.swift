@@ -24,16 +24,12 @@ class PerfilView: PerfilViewModel {
         
         super.viewDidLoad()
         
-        APIFullRequest {users in
+        APIRequest(user) {user in
             
-            if let users = users {
+            if let user = user {
                 
-                if let perfilData = self.perfil(self.user,
-                                                users) {
-                    
-                    self.perfilData = perfilData
-                    self.perfilTableView.reloadData()
-                }
+                self.perfilData = self.perfilDataUnwraper(user)
+                self.perfilTableView.reloadData()
             }
         }
         
@@ -63,16 +59,12 @@ class PerfilView: PerfilViewModel {
                             message: "Você alterou: \(self.perfilData[self.dataToModify ?? 0][0])",
                             buttonTitle: "Ok")
             
-            APIFullRequest {users in
+            APIRequest(user) {user in
                 
-                if let users = users {
+                if let user = user {
                     
-                    if let perfilData = self.perfil(self.user,
-                                                    users) {
-                        
-                        self.perfilData = perfilData
-                        self.perfilTableView.reloadData()
-                    }
+                    self.perfilData = self.perfilDataUnwraper(user)
+                    self.perfilTableView.reloadData()
                 }
             }
         }
