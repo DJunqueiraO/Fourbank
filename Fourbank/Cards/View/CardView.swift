@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CardView: UIViewController, CardController {
+class CardView: UIViewController {
     
     @IBOutlet weak var tabBar: UITabBar!
 
@@ -25,16 +25,12 @@ class CardView: UIViewController, CardController {
         
         tabBar.delegate = self
         
-        APIFullRequest {users in
+        APIRequest(user) {user in
             
-            if let users = users {
+            if let user = user {
                 
-                if let cardData = self.cardData(self.user,
-                                                users) {
-                    
-                    self.cardDescription = [cardData]
-                    self.cardTableView.reloadData()
-                }
+                self.cardDescription.append([user.name, String(user.cardNumber)])
+                self.cardTableView.reloadData()
             }
         }
         
