@@ -30,7 +30,6 @@
 		14157ECD285FEE1500C42CBB /* PaymentViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14157ECB285FEE1500C42CBB /* PaymentViewCell.xib */; };
 		14157ED4286001DE00C42CBB /* PaymentConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14157ED2286001DE00C42CBB /* PaymentConfirmView.swift */; };
 		14157ED5286001DE00C42CBB /* PaymentConfirmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14157ED3286001DE00C42CBB /* PaymentConfirmView.xib */; };
-		1424964C2863A000005F9C82 /* PerfilModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1424964B2863A000005F9C82 /* PerfilModel.swift */; };
 		1424964E2863A010005F9C82 /* PerfilViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1424964D2863A010005F9C82 /* PerfilViewModel.swift */; };
 		142498BE2852BACE005E9D2A /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 142498BD2852BACE005E9D2A /* LoginView.xib */; };
 		1432CC3F285CA08D00122B9A /* BarCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1432CC3E285CA08D00122B9A /* BarCodeView.swift */; };
@@ -101,7 +100,6 @@
 		14157ECB285FEE1500C42CBB /* PaymentViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentViewCell.xib; sourceTree = "<group>"; };
 		14157ED2286001DE00C42CBB /* PaymentConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentConfirmView.swift; sourceTree = "<group>"; };
 		14157ED3286001DE00C42CBB /* PaymentConfirmView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentConfirmView.xib; sourceTree = "<group>"; };
-		1424964B2863A000005F9C82 /* PerfilModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PerfilModel.swift; path = Fourbank/Perfil/Model/PerfilModel.swift; sourceTree = SOURCE_ROOT; };
 		1424964D2863A010005F9C82 /* PerfilViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PerfilViewModel.swift; path = Fourbank/Perfil/ViewModel/PerfilViewModel.swift; sourceTree = SOURCE_ROOT; };
 		142498BD2852BACE005E9D2A /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		1432CC3E285CA08D00122B9A /* BarCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeView.swift; sourceTree = "<group>"; };
@@ -363,15 +361,6 @@
 			path = View/ViewModel;
 			sourceTree = "<group>";
 		};
-		1424964A28639FD5005F9C82 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				1424964B2863A000005F9C82 /* PerfilModel.swift */,
-			);
-			name = Model;
-			path = View/Model;
-			sourceTree = "<group>";
-		};
 		1432CC40285CA58300122B9A /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -434,7 +423,6 @@
 			children = (
 				1424964928639FCD005F9C82 /* ViewModel */,
 				1469D12B285A565D00A860DA /* View */,
-				1424964A28639FD5005F9C82 /* Model */,
 			);
 			path = Perfil;
 			sourceTree = "<group>";
@@ -788,7 +776,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1D1737402847D91100EE9DDF /* Build configuration list for PBXProject "Fourbank" */;
+			buildConfigurationList = 1D1737402847D91100EE9DDF /* Build configuration list for PBXProject "Fourbank2.0" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -883,7 +871,6 @@
 				140BC9ED285654A2000142FB /* PaymentView.swift in Sources */,
 				14157ED4286001DE00C42CBB /* PaymentConfirmView.swift in Sources */,
 				1432CC42285CA5B300122B9A /* CardViewCell.swift in Sources */,
-				1424964C2863A000005F9C82 /* PerfilModel.swift in Sources */,
 				1D17374B2847D91100EE9DDF /* SceneDelegate.swift in Sources */,
 				140BC9FC28569947000142FB /* PixView.swift in Sources */,
 				1D2AE2BA284D29AA0075D1EB /* RegisterController.swift in Sources */,
@@ -1083,7 +1070,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1D1737402847D91100EE9DDF /* Build configuration list for PBXProject "Fourbank" */ = {
+		1D1737402847D91100EE9DDF /* Build configuration list for PBXProject "Fourbank2.0" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D17375A2847D91300EE9DDF /* Debug */,

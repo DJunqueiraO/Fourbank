@@ -10,13 +10,13 @@ import Foundation
 protocol HomeController {
     
     func balance(_ id: String,
-                 _ users: [PerfilAPI]) -> Int?
+                 _ users: [User]) -> Int?
 }
 
 extension HomeController {
     
     func balance(_ id: String,
-                 _ users: [PerfilAPI]) -> Int? {
+                 _ users: [User]) -> Int? {
         
         for user in users {
 

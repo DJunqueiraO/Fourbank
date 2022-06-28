@@ -30,23 +30,11 @@ class HomeView: UIViewController, HomeController{
         
         super.viewDidLoad()
         
-        APIFullRequest {users in
+        APIRequest(user) {user in
             
-            if let users = users {
+            if let user = user {
                 
-                let balance = self.balance(self.user,
-                                           users)
-                
-                if var balance = balance {
-                    
-                    self.accountBalance = String(balance)
-                    
-                    while balance >= 1 {
-                        
-                        self.accountBalanceLabel.text?.append("*")
-                        balance /= 10
-                    }
-                }
+                self.accountBalance = String(user.accountBalance)
             }
         }
         

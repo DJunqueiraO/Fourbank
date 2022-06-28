@@ -10,16 +10,16 @@ import UIKit
 
 extension UIViewController {
 
-    func APIFullRequest(completion: @escaping ([PerfilAPI]?) -> Void) {
+    func APIFullRequest(completion: @escaping ([User]?) -> Void) {
 
-        let url = "https://62baecc67bdbe01d52937f9a.mockapi.io/"
+        let url = "https://62baed237bdbe01d52938975.mockapi.io/api/users"
 
         AF.request(url).responseJSON {response in
 
             if let data = response.data {
 
                 do {
-                    let users: [PerfilAPI] = try JSONDecoder().decode([PerfilAPI].self, from: data)
+                    let users: [User] = try JSONDecoder().decode([User].self, from: data)
 
                     completion(users)
                 }
@@ -34,17 +34,17 @@ extension UIViewController {
         }
     }
     
-    func APIrequest(_ id: String,
-                    completion: @escaping (PerfilAPI?) -> Void) {
+    func APIRequest(_ id: String,
+                    completion: @escaping (User?) -> Void) {
 
-        let url = "https://62ad2075402135c7acbce26b.mockapi.io/api/v1/account3/\(id)"
+        let url = "https://62baed237bdbe01d52938975.mockapi.io/api/users/\(id)"
 
         AF.request(url).responseJSON {response in
 
             if let data = response.data {
 
                 do {
-                    let user: PerfilAPI = try JSONDecoder().decode(PerfilAPI.self, from: data)
+                    let user: User = try JSONDecoder().decode(User.self, from: data)
 
                     completion(user)
                 }
@@ -59,3 +59,31 @@ extension UIViewController {
         }
     }
 }
+
+struct User: Codable {
+    
+    let account: String
+    let agency: String
+    let bank: String
+    let accountBalance: Int
+    let name: String
+    let birthDate: String
+    let cpf: String
+    let rg: String
+    let cellPhone: String
+    let email: String
+    let password: String
+    let street: String
+    let number: String
+    let cep: String
+    let district: String
+    let city: String
+    let state: String
+    let cpfPix: String
+    let emailPix: String
+    let cellPhonePix: String
+    let randowKeyPix: String
+    let cardNumber: Int
+    let id: String
+}
+

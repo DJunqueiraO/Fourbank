@@ -12,7 +12,7 @@ import UIKit
 class PerfilViewModel: UIViewController {
     
     func perfil(_ id: String,
-                _ users: [PerfilAPI]) -> [[String]]? {
+                _ users: [User]) -> [[String]]? {
         
         for user in users {
             
@@ -22,15 +22,15 @@ class PerfilViewModel: UIViewController {
                         ["Conta:", user.account],
                         ["Nome:", user.name],
                         ["Email:", user.email],
-                        ["Celular:", user.cellphone],
+                        ["Celular:", user.cellPhone],
                         ["CEP:", user.cep],
                         ["Logradouro:", user.street],
                         ["Número:", user.number],
-                        ["Bairro:", user.neighborhood],
+                        ["Bairro:", user.district],
                         ["Cidade:", user.city],
                         ["Estado:", user.state],
                         ["EmailPix:", user.emailPix],
-                        ["CelularPix:", user.cellphonePix],
+                        ["CelularPix:", user.cellPhonePix],
                         ["CPFPix:", user.cpfPix]]
             }
         }

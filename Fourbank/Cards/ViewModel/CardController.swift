@@ -10,13 +10,13 @@ import Foundation
 protocol CardController {
     
     func cardData(_ id: String,
-                  _ users: [PerfilAPI]) -> [String]?
+                  _ users: [User]) -> [String]?
 }
 
 extension CardController {
     
     func cardData(_ id: String,
-                  _ users: [PerfilAPI]) -> [String]? {
+                  _ users: [User]) -> [String]? {
 
         for user in users {
             
