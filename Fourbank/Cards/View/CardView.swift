@@ -25,7 +25,7 @@ class CardView: UIViewController, CardController {
         
         tabBar.delegate = self
         
-        APIrequest {users in
+        APIFullRequest {users in
             
             if let users = users {
                 

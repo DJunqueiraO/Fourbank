@@ -24,7 +24,7 @@ class LoginView: UIViewController, LoginController {
             if validateTextField(emailTextField.text ?? "") &&
                validateTextField(passwordTextField.text ?? "") {
                 
-                APIrequest {users in
+                APIFullRequest {users in
                     
                     if let users = users {
                         

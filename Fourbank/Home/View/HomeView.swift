@@ -30,7 +30,7 @@ class HomeView: UIViewController, HomeController{
         
         super.viewDidLoad()
         
-        APIrequest {users in
+        APIFullRequest {users in
             
             if let users = users {
                 

@@ -24,7 +24,7 @@ class PerfilView: PerfilViewModel {
         
         super.viewDidLoad()
         
-        APIrequest {users in
+        APIFullRequest {users in
             
             if let users = users {
                 
@@ -63,7 +63,7 @@ class PerfilView: PerfilViewModel {
                             message: "Você alterou: \(self.perfilData[self.dataToModify ?? 0][0])",
                             buttonTitle: "Ok")
             
-            APIrequest {users in
+            APIFullRequest {users in
                 
                 if let users = users {
                     

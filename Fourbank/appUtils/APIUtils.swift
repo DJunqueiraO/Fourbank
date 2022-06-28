@@ -10,9 +10,9 @@ import UIKit
 
 extension UIViewController {
 
-    func APIrequest(completion: @escaping ([PerfilAPI]?) -> Void) {
+    func APIFullRequest(completion: @escaping ([PerfilAPI]?) -> Void) {
 
-        let url = "https://62ad2075402135c7acbce26b.mockapi.io/api/v1/account3"
+        let url = "https://62baecc67bdbe01d52937f9a.mockapi.io/"
 
         AF.request(url).responseJSON {response in
 
@@ -22,6 +22,31 @@ extension UIViewController {
                     let users: [PerfilAPI] = try JSONDecoder().decode([PerfilAPI].self, from: data)
 
                     completion(users)
+                }
+                catch {
+
+                    self.alertOther(messageTitle: "Falha",
+                                    message: "Erro: \(error)",
+                                    buttonTitle: "Ok")
+                    completion(nil)
+                }
+            }
+        }
+    }
+    
+    func APIrequest(_ id: String,
+                    completion: @escaping (PerfilAPI?) -> Void) {
+
+        let url = "https://62ad2075402135c7acbce26b.mockapi.io/api/v1/account3/\(id)"
+
+        AF.request(url).responseJSON {response in
+
+            if let data = response.data {
+
+                do {
+                    let user: PerfilAPI = try JSONDecoder().decode(PerfilAPI.self, from: data)
+
+                    completion(user)
                 }
                 catch {
 
