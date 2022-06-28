@@ -38,7 +38,6 @@
 		143711C3285B6B96008AD17E /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 143711C2285B6B96008AD17E /* CodeScanner */; };
 		143F85C42852C39100373653 /* NewsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 143F85C32852C39000373653 /* NewsView.xib */; };
 		14472839286A087C002FC554 /* APIUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14472838286A087C002FC554 /* APIUtils.swift */; };
-		14681C912860B233001C7E17 /* CardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14681C902860B233001C7E17 /* CardController.swift */; };
 		1469D119285A391300A860DA /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1469D118285A391300A860DA /* StringUtils.swift */; };
 		1469D127285A564800A860DA /* PerfilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1469D126285A564800A860DA /* PerfilView.swift */; };
 		1469D129285A565300A860DA /* PerfilView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1469D128285A565300A860DA /* PerfilView.xib */; };
@@ -105,7 +104,6 @@
 		143711BD285B647B008AD17E /* QrCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodeView.swift; sourceTree = "<group>"; };
 		143F85C32852C39000373653 /* NewsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsView.xib; sourceTree = "<group>"; };
 		14472838286A087C002FC554 /* APIUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIUtils.swift; sourceTree = "<group>"; };
-		14681C902860B233001C7E17 /* CardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardController.swift; sourceTree = "<group>"; };
 		1469D118285A391300A860DA /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		1469D126285A564800A860DA /* PerfilView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerfilView.swift; sourceTree = "<group>"; };
 		1469D128285A565300A860DA /* PerfilView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PerfilView.xib; sourceTree = "<group>"; };
@@ -389,14 +387,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		14681C8F2860B223001C7E17 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				14681C902860B233001C7E17 /* CardController.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		1469D12A285A565600A860DA /* Perfil */ = {
 			isa = PBXGroup;
 			children = (
@@ -521,7 +511,6 @@
 		14A6669F28554EF50013037A /* Cards */ = {
 			isa = PBXGroup;
 			children = (
-				14681C8F2860B223001C7E17 /* ViewModel */,
 				14A666A128554F080013037A /* View */,
 				09109EBD2861ED950038DCD6 /* Model */,
 			);
@@ -835,7 +824,6 @@
 				1469D119285A391300A860DA /* StringUtils.swift in Sources */,
 				14472839286A087C002FC554 /* APIUtils.swift in Sources */,
 				146D0BA128635C9100D1B924 /* PixRegisterViewModel.swift in Sources */,
-				14681C912860B233001C7E17 /* CardController.swift in Sources */,
 				1D8CEE3D284E04CC007BA426 /* Model.xcdatamodeld in Sources */,
 				140BC9ED285654A2000142FB /* PaymentView.swift in Sources */,
 				14157ED4286001DE00C42CBB /* PaymentConfirmView.swift in Sources */,
