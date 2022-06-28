@@ -167,13 +167,6 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		09109EBD2861ED950038DCD6 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		0921E8102857AF9700C6B63D /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -512,7 +505,6 @@
 			isa = PBXGroup;
 			children = (
 				14A666A128554F080013037A /* View */,
-				09109EBD2861ED950038DCD6 /* Model */,
 			);
 			path = Cards;
 			sourceTree = "<group>";

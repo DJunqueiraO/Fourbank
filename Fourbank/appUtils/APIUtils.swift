@@ -85,4 +85,6 @@ struct User: Codable {
     let randowKeyPix: String
     let cardNumber: String
     let id: String
+    let credited: String
+    let debited: String
 }
