@@ -65,7 +65,7 @@ struct User: Codable {
     let account: String
     let agency: String
     let bank: String
-    let accountBalance: Int
+    var accountBalance: Int
     let name: String
     let birthDate: String
     let cpf: String

@@ -17,7 +17,6 @@
 		140BC9EE285654A2000142FB /* PaymentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 140BC9EC285654A2000142FB /* PaymentView.xib */; };
 		140BC9FC28569947000142FB /* PixView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140BC9FA28569947000142FB /* PixView.swift */; };
 		140BC9FD28569947000142FB /* PixView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 140BC9FB28569947000142FB /* PixView.xib */; };
-		140EA52C2861509B00B2D63A /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140EA52B2861509B00B2D63A /* HomeController.swift */; };
 		1410D98128662A6F00866E10 /* ValidateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1410D98028662A6F00866E10 /* ValidateUtils.swift */; };
 		14140D812852DE780050ABB4 /* HomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14140D802852DE780050ABB4 /* HomeView.xib */; };
 		14140D832852E1650050ABB4 /* RegisterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14140D822852E1650050ABB4 /* RegisterView.xib */; };
@@ -88,7 +87,6 @@
 		140BC9EC285654A2000142FB /* PaymentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentView.xib; sourceTree = "<group>"; };
 		140BC9FA28569947000142FB /* PixView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixView.swift; sourceTree = "<group>"; };
 		140BC9FB28569947000142FB /* PixView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PixView.xib; sourceTree = "<group>"; };
-		140EA52B2861509B00B2D63A /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeController.swift; path = Fourbank/Home/ViewModel/HomeController.swift; sourceTree = SOURCE_ROOT; };
 		1410D98028662A6F00866E10 /* ValidateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateUtils.swift; sourceTree = "<group>"; };
 		14140D802852DE780050ABB4 /* HomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeView.xib; sourceTree = "<group>"; };
 		14140D822852E1650050ABB4 /* RegisterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterView.xib; sourceTree = "<group>"; };
@@ -189,18 +187,9 @@
 		096AD192285254D000E94382 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				140EA52D286150AB00B2D63A /* ViewModel */,
 				096AD194285254EE00E94382 /* View */,
-				096AD193285254E000E94382 /* Model */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		096AD193285254E000E94382 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		096AD194285254EE00E94382 /* View */ = {
@@ -286,14 +275,6 @@
 				140BC9FB28569947000142FB /* PixView.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		140EA52D286150AB00B2D63A /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				140EA52B2861509B00B2D63A /* HomeController.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		14157EC3285FC0D700C42CBB /* Cell */ = {
@@ -864,7 +845,6 @@
 				1D2AE2BA284D29AA0075D1EB /* RegisterController.swift in Sources */,
 				14F1FA8A2854D49E00FC5422 /* MenuOptionsCellUtils.swift in Sources */,
 				1473F1C9285399860072A9A1 /* HistoryView.swift in Sources */,
-				140EA52C2861509B00B2D63A /* HomeController.swift in Sources */,
 				09109EBB2861ECAC0038DCD6 /* PerfilViewCell.swift in Sources */,
 				14EAA46D2868705D00604C81 /* PaymentConfirmModel.swift in Sources */,
 				14157EC8285FC91B00C42CBB /* ViewCode.swift in Sources */,

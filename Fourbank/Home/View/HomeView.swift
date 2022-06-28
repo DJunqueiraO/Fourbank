@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeView: UIViewController, HomeController{
+class HomeView: UIViewController{
     
     @IBOutlet weak var homeOptionsTable: UITableView!
     @IBOutlet weak var tabBar: UITabBar!
@@ -34,11 +34,13 @@ class HomeView: UIViewController, HomeController{
             
             if let user = user {
                 
-                self.accountBalance = String(user.accountBalance)
+                var balance = user.accountBalance
+                self.accountBalance = String(balance)
                 
-                while user.accountBalance >= 1 {
+                while balance >= 1 {
                     
                     self.accountBalanceLabel.text?.append("*")
+                    balance /= 10
                 }
             }
         }

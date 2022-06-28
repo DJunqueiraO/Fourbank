@@ -199,7 +199,7 @@ extension RegisterView {
                   validateCPF(registerTextField.text ?? "") &&
                   validateUserCoreData(registerTextField.text ?? "") {
                        
-                   validateUserAPI(registerTextField.text ?? "") {result, error in
+                   validateUserOnAPI(registerTextField.text ?? "") {result in
                    
                        if result {
                            
@@ -216,13 +216,6 @@ extension RegisterView {
                            self.greetingsLabel.text = "Digite uma senha:"
                            self.registerLabel.text = "Senha:"
                            self.registerTextField.placeholder = "Ex: 4Cl13nt3"
-                       }
-                       else {
-                           
-                           if let error = error {
-                               
-                               print(error)
-                           }
                        }
                    }
                }

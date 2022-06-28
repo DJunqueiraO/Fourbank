@@ -149,40 +149,25 @@ import CoreData
 
 extension UIViewController {
     
-    func validateUserAPI(_ cpf: String,
-                         _ completion: @escaping (Bool, Error?) -> Void) {
+    func validateUserOnAPI(_ cpf: String,
+                           _ completion: @escaping (Bool) -> Void) {
+        var result = true
         
-        let url = "https://62ad2075402135c7acbce26b.mockapi.io/api/v1/account3"
-        
-        AF.request(url).responseJSON {response in
-
-            if let data = response.data {
-
-                do {
-
-                    let users: [User] = try JSONDecoder().decode([User].self, from: data)
-                    var result: Bool = true
+        APIFullRequest {users in
+            
+            if let users = users {
+                
+                for user in users {
                     
-                    for user in users {
+                    if user.cpf == cpf {
                         
-                        if user.cpf == cpf {
-                            
-                            self.alert(messageTitle: "Falha no cadastro",
-                                            message: "Este CPF já foi cadastrado.",
-                                            buttonTitle: "Ok")
-                            result = false
-                        }
+                        self.alert(messageTitle: "Falha",
+                                   message: "Este CPF já existe.",
+                                   buttonTitle: "Ok")
+                        result = false
                     }
-                    
-                    completion(result, nil)
                 }
-                catch {
-                    
-                    self.alert(messageTitle: "Falha no cadastro",
-                                    message: "Erro: \(error)",
-                                    buttonTitle: "Ok")
-                    completion(false, error)
-                }
+                completion(result)
             }
         }
     }
