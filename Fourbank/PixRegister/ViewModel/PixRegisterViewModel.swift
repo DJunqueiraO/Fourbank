@@ -31,7 +31,7 @@ extension PixRegisterViewModel {
 
                 do {
 
-                    let users: [RegisterAPIDoEvandro] = try JSONDecoder().decode([RegisterAPIDoEvandro].self, from: data)
+                    let users: [User] = try JSONDecoder().decode([User].self, from: data)
 
                     var newRandowKey = ""
 
@@ -79,7 +79,7 @@ extension PixRegisterViewModel {
                 
                 do {
                     
-                    let users: [RegisterAPIDoEvandro] = try JSONDecoder().decode([RegisterAPIDoEvandro].self, from: data)
+                    let users: [User] = try JSONDecoder().decode([User].self, from: data)
                     var result: Bool = true
                     
                     if self.validateEmail(key) {

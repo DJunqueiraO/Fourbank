@@ -59,7 +59,7 @@ class PerfilView: PerfilViewModel {
                     dataToModify ?? 0,
                     dataTextField.text ?? "") {
         
-            self.alertOther(messageTitle: "Sucesso",
+            self.alert(messageTitle: "Sucesso",
                             message: "Você alterou: \(self.perfilData[self.dataToModify ?? 0][0])",
                             buttonTitle: "Ok")
             

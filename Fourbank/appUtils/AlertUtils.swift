@@ -7,26 +7,9 @@
 
 import UIKit
 
-class Alert {
-    
-    let controller: UIViewController
-
-    init(controller: UIViewController) {
-
-        self.controller = controller
-    }
-    
-    func alert(messageTitle: String, message: String, buttonTitle: String) {
-        
-        let alert = UIAlertController(title: messageTitle, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: buttonTitle, style: .default))
-        controller.present(alert, animated: true, completion: nil)
-    }
-}
-
 extension UIViewController {
     
-    func alertOther(messageTitle: String, message: String, buttonTitle: String) {
+    func alert(messageTitle: String, message: String, buttonTitle: String) {
         
         let alert = UIAlertController(title: messageTitle, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: buttonTitle, style: .default))

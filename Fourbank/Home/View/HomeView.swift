@@ -35,6 +35,11 @@ class HomeView: UIViewController, HomeController{
             if let user = user {
                 
                 self.accountBalance = String(user.accountBalance)
+                
+                while user.accountBalance >= 1 {
+                    
+                    self.accountBalanceLabel.text?.append("*")
+                }
             }
         }
         

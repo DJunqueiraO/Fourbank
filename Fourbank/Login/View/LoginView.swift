@@ -40,7 +40,7 @@ class LoginView: UIViewController, LoginController {
                         }
                         else {
                             
-                            self.alertOther(messageTitle: "Falha",
+                            self.alert(messageTitle: "Falha",
                                             message: "Login ou senha invalido",
                                             buttonTitle: "Ok")
                         }

@@ -15,7 +15,7 @@ extension UIViewController {
 
             return true
         }
-        alertOther(messageTitle: "Falha",
+        alert(messageTitle: "Falha",
                    message: "Favor digite algum valor válido.",
                    buttonTitle: "Ok")
         
@@ -28,7 +28,7 @@ extension UIViewController {
             
             return true
         }
-        alertOther(messageTitle: "Falha",
+        alert(messageTitle: "Falha",
                    message: "Favor digite um CPF válido.",
                    buttonTitle: "Ok")
         return false
@@ -41,7 +41,7 @@ extension UIViewController {
             
             return true
         }
-        alertOther(messageTitle: "Falha",
+        alert(messageTitle: "Falha",
                    message: "Confirme sua senha corretamente.",
                    buttonTitle: "Ok")
         return false
@@ -57,7 +57,7 @@ extension UIViewController {
             
             return true
         }
-        alertOther(messageTitle: "Falha",
+        alert(messageTitle: "Falha",
                    message: "Favor digite um e-mail válido.",
                    buttonTitle: "Ok")
         return false
@@ -73,7 +73,7 @@ extension UIViewController {
             
             return true
         }
-        alertOther(messageTitle: "Falha",
+        alert(messageTitle: "Falha",
                    message: "Favor digite uma data válida.",
                    buttonTitle: "Ok")
         return false
@@ -89,7 +89,7 @@ extension UIViewController {
             
             return true
         }
-        alertOther(messageTitle: "Falha",
+        alert(messageTitle: "Falha",
                    message: "Favor digite um nome válido.",
                    buttonTitle: "Ok")
         return false
@@ -105,7 +105,7 @@ extension UIViewController {
             
             return true
         }
-        alertOther(messageTitle: "Falha",
+        alert(messageTitle: "Falha",
                    message: "Favor digite um número válido.",
                    buttonTitle: "Ok")
         return false
@@ -121,7 +121,7 @@ extension UIViewController {
             
             return true
         }
-        alertOther(messageTitle: "Falha",
+        alert(messageTitle: "Falha",
                    message: "Favor digite um cep válido.",
                    buttonTitle: "Ok")
         return false
@@ -137,7 +137,7 @@ extension UIViewController {
             
             return true
         }
-        alertOther(messageTitle: "Falha",
+        alert(messageTitle: "Falha",
                    message: "Favor digite um número válido.",
                    buttonTitle: "Ok")
         return false
@@ -160,14 +160,14 @@ extension UIViewController {
 
                 do {
 
-                    let users: [RegisterAPIDoEvandro] = try JSONDecoder().decode([RegisterAPIDoEvandro].self, from: data)
+                    let users: [User] = try JSONDecoder().decode([User].self, from: data)
                     var result: Bool = true
                     
                     for user in users {
                         
                         if user.cpf == cpf {
                             
-                            self.alertOther(messageTitle: "Falha no cadastro",
+                            self.alert(messageTitle: "Falha no cadastro",
                                             message: "Este CPF já foi cadastrado.",
                                             buttonTitle: "Ok")
                             result = false
@@ -178,7 +178,7 @@ extension UIViewController {
                 }
                 catch {
                     
-                    self.alertOther(messageTitle: "Falha no cadastro",
+                    self.alert(messageTitle: "Falha no cadastro",
                                     message: "Erro: \(error)",
                                     buttonTitle: "Ok")
                     completion(false, error)
@@ -205,7 +205,7 @@ extension UIViewController {
 
                     if cpf == user.value(forKey: "cpf") as? String {
                         
-                        alertOther(messageTitle: "Falha no cadastro",
+                        alert(messageTitle: "Falha no cadastro",
                                    message: "O CPF já foi cadastrado.",
                                    buttonTitle: "Ok")
                         return false
@@ -215,7 +215,7 @@ extension UIViewController {
         }
         catch let error as NSError {
             
-            alertOther(messageTitle: "Falha no cadastro",
+            alert(messageTitle: "Falha no cadastro",
                        message: "Erro: \(error)",
                        buttonTitle: "Ok")
             print(error)
