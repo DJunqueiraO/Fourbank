@@ -324,13 +324,12 @@ extension RegisterView {
                    stage += 1
                     
                    registerAPI(name ?? "",
-                               cpf ?? "",
-                               password ?? "",
-                               email ?? "",
-                               cellphone ?? "",
                                birthDate ?? "",
+                               cpf ?? "",
+                               cellphone ?? "",
+                               email ?? "",
+                               password ?? "",
                                street ?? "",
-                               number ?? "",
                                cep ?? "",
                                district ?? "",
                                city ?? "",
