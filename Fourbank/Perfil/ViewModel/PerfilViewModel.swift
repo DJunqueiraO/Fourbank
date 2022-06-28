@@ -11,30 +11,22 @@ import UIKit
     
 class PerfilViewModel: UIViewController {
     
-    func perfil(_ id: String,
-                _ users: [User]) -> [[String]]? {
+    func perfilDataUnwraper(_ user: User) -> [[String]] {
         
-        for user in users {
-            
-            if user.id == id {
-
-                return [["Agência:", user.agency],
-                        ["Conta:", user.account],
-                        ["Nome:", user.name],
-                        ["Email:", user.email],
-                        ["Celular:", user.cellPhone],
-                        ["CEP:", user.cep],
-                        ["Logradouro:", user.street],
-                        ["Número:", user.number],
-                        ["Bairro:", user.district],
-                        ["Cidade:", user.city],
-                        ["Estado:", user.state],
-                        ["EmailPix:", user.emailPix],
-                        ["CelularPix:", user.cellPhonePix],
-                        ["CPFPix:", user.cpfPix]]
-            }
-        }
-        return nil
+        return [["Agência:", user.agency],
+                ["Conta:", user.account],
+                ["Nome:", user.name],
+                ["Email:", user.email],
+                ["Celular:", user.cellPhone],
+                ["CEP:", user.cep],
+                ["Logradouro:", user.street],
+                ["Número:", user.number],
+                ["Bairro:", user.district],
+                ["Cidade:", user.city],
+                ["Estado:", user.state],
+                ["EmailPix:", user.emailPix],
+                ["CelularPix:", user.cellPhonePix],
+                ["CPFPix:", user.cpfPix]]
     }
     
     func putOnAPI(_ id: String,
@@ -82,7 +74,7 @@ class PerfilViewModel: UIViewController {
                     return false
                 }
             
-            case 4: dataType = "cellphone"
+            case 4: dataType = "cellPhone"
             
                 if validateCellPhone(dataToModify) {
                     
@@ -112,7 +104,7 @@ class PerfilViewModel: UIViewController {
             
                 data = dataToModify
             
-            case 8: dataType = "neighborhood"
+            case 8: dataType = "district"
             
                 data = dataToModify
             
@@ -135,7 +127,7 @@ class PerfilViewModel: UIViewController {
                     return false
                 }
 
-            case 12: dataType = "cellphonePix"
+            case 12: dataType = "cellPhonePix"
 
                 if validateCellPhone(dataToModify) {
 
@@ -160,7 +152,7 @@ class PerfilViewModel: UIViewController {
 
         let parameters: [String: Any] = [dataType: data as Any]
 
-        AF.request("https://62ad2075402135c7acbce26b.mockapi.io/api/v1/account3/\(id)",
+        AF.request("https://62baed237bdbe01d52938975.mockapi.io/api/users/\(id)",
                    method: .put,
                    parameters: parameters,
                    encoding: JSONEncoding.default).responseJSON {response in
