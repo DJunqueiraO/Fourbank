@@ -27,14 +27,14 @@ extension PixController {
                  
                 do {
                      
-                    let users: [RegisterAPIDoEvandro] = try JSONDecoder().decode([RegisterAPIDoEvandro].self, from: data)
+                    let users: [User] = try JSONDecoder().decode([User].self, from: data)
                     var result: Bool = false
                     
                     for user in users {
                         
                         if user.emailPix == key ||
                            user.cpfPix == key ||
-                           user.cellphonePix == key ||
+                           user.cellPhonePix == key ||
                            user.randowKeyPix == key {
                             
                             result = true
@@ -62,7 +62,7 @@ extension PixController {
                  
                 do {
                      
-                    let users: [RegisterAPIDoEvandro] = try JSONDecoder().decode([RegisterAPIDoEvandro].self, from: data)
+                    let users: [User] = try JSONDecoder().decode([User].self, from: data)
                     var names: [String] = []
                     var pixkeys: [String] = []
                     

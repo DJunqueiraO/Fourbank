@@ -24,11 +24,11 @@ class PixRegisterView: UIViewController, PixRegisterViewModel {
 
             if result {
                 
-                self.alertOther(messageTitle: "Sucesso", message: "Sua chave aleatoria foi cadastrada com sucesso", buttonTitle: "Ok")
+                self.alert(messageTitle: "Sucesso", message: "Sua chave aleatoria foi cadastrada com sucesso", buttonTitle: "Ok")
             }
             else {
                 
-                self.alertOther(messageTitle: "Falha ao cadastrar", message: "erro: \(error!)", buttonTitle: "Ok")
+                self.alert(messageTitle: "Falha ao cadastrar", message: "erro: \(error!)", buttonTitle: "Ok")
             }
         }
     }
@@ -42,7 +42,7 @@ class PixRegisterView: UIViewController, PixRegisterViewModel {
 
                 if result {
 
-                    self.alertOther(messageTitle: "Sucesso!",
+                    self.alert(messageTitle: "Sucesso!",
                                     message: "Sua Chave foi cadastrada com sucesso",
                                     buttonTitle: "Ok")
                     print("Success")
@@ -51,14 +51,14 @@ class PixRegisterView: UIViewController, PixRegisterViewModel {
                     
                     if let error = error {
                         
-                        self.alertOther(messageTitle: "Falha",
+                        self.alert(messageTitle: "Falha",
                                         message: "Erro: \(error)",
                                         buttonTitle: "Ok")
                         print(error)
                     }
                     else {
                         
-                        self.alertOther(messageTitle: "Falha",
+                        self.alert(messageTitle: "Falha",
                                         message: "Essa chave pix já existe ou voce digitou um valor inválido",
                                         buttonTitle: "Ok")
                     }
@@ -67,7 +67,7 @@ class PixRegisterView: UIViewController, PixRegisterViewModel {
         }
         else {
             
-            self.alertOther(messageTitle: "Falha",
+            self.alert(messageTitle: "Falha",
                             message: "Digite uma chave para o cadastro",
                             buttonTitle: "Ok")
         }

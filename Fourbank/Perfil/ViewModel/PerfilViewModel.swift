@@ -48,14 +48,14 @@ class PerfilViewModel: UIViewController {
             
             case 0: dataType = "agency"
             
-                self.alertOther(messageTitle: "Falha!",
+                self.alert(messageTitle: "Falha!",
                                 message: "Você não pode alterar esse dado.",
                                 buttonTitle: "Ok")
                 return false
             
             case 1: dataType = "account"
             
-                self.alertOther(messageTitle: "Falha!",
+                self.alert(messageTitle: "Falha!",
                                 message: "Você não pode alterar esse dado.",
                                 buttonTitle: "Ok")
                 return false

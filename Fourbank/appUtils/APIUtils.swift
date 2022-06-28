@@ -25,7 +25,7 @@ extension UIViewController {
                 }
                 catch {
 
-                    self.alertOther(messageTitle: "Falha",
+                    self.alert(messageTitle: "Falha",
                                     message: "Erro: \(error)",
                                     buttonTitle: "Ok")
                     completion(nil)
@@ -50,7 +50,7 @@ extension UIViewController {
                 }
                 catch {
 
-                    self.alertOther(messageTitle: "Falha",
+                    self.alert(messageTitle: "Falha",
                                     message: "Erro: \(error)",
                                     buttonTitle: "Ok")
                     completion(nil)
@@ -83,9 +83,6 @@ struct User: Codable {
     let emailPix: String
     let cellPhonePix: String
     let randowKeyPix: String
-    let cardNumber: Int
+    let cardNumber: String
     let id: String
-    let credited: [String]
-    let debited: [String]
 }
-

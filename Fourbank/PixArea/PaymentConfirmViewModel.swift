@@ -33,7 +33,7 @@ extension PaymentConfirmViewModel {
             if let data = response.data {
                  
                 do {
-                    let users: [RegisterAPIDoEvandro] = try JSONDecoder().decode([RegisterAPIDoEvandro].self, from: data)
+                    let users: [User] = try JSONDecoder().decode([User].self, from: data)
                     
                     let today = Date()
                     let moment = moment(today)
@@ -42,7 +42,7 @@ extension PaymentConfirmViewModel {
                         
                         if user.emailPix == key ||
                            user.cpfPix == key ||
-                           user.cellphonePix == key ||
+                           user.cellPhonePix == key ||
                            user.randowKeyPix == key {
                             
                             completion(.success([["Beneficiário:",user.name],

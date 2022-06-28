@@ -46,7 +46,7 @@ class PixView: UIViewController, PixController {
                 
                 case .failure(let error):
             
-                    Alert(controller: self).alert(messageTitle: "Falha ao carregar dados!", message: "erro: \(error)", buttonTitle: "Ok")
+                    self.alert(messageTitle: "Falha ao carregar dados!", message: "erro: \(error)", buttonTitle: "Ok")
                 }
         }
         
@@ -97,13 +97,13 @@ class PixView: UIViewController, PixController {
                         
                         if let error = error {
                             
-                            self.alertOther(messageTitle: "Falha",
+                            self.alert(messageTitle: "Falha",
                                             message: "Erro: \(error)",
                                             buttonTitle: "Ok")
                         }
                         else {
                             
-                            self.alertOther(messageTitle: "Falha",
+                            self.alert(messageTitle: "Falha",
                                             message: "Essa chave não foi localizada",
                                             buttonTitle: "Ok")
                         }

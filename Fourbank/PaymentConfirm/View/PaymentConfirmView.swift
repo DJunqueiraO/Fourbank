@@ -34,7 +34,7 @@ class PaymentConfirmView: UIViewController, PaymentConfirmViewModel {
                 
                 case .failure(let error):
             
-                    self.alertOther(messageTitle: "Falha ao logar!",
+                    self.alert(messageTitle: "Falha ao logar!",
                                     message: "erro: \(error)",
                                     buttonTitle: "Ok")
                 }
@@ -65,13 +65,13 @@ class PaymentConfirmView: UIViewController, PaymentConfirmViewModel {
                 
                 if let error = error {
                     
-                    self.alertOther(messageTitle: "Falha",
+                    self.alert(messageTitle: "Falha",
                                     message: "Erro: \(error)",
                                     buttonTitle: "Ok")
                 }
                 else {
                     
-                    self.alertOther(messageTitle: "Falha",
+                    self.alert(messageTitle: "Falha",
                                     message: "Não foi possivel efetuar transação",
                                     buttonTitle: "Ok")
                 }
