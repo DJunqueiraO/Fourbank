@@ -23,21 +23,17 @@ class PaymentConfirmView: UIViewController, PaymentConfirmViewModel {
         
         super.viewDidLoad()
         
-        setup(paymentValue,
-              receiverKey) {result in
-            switch result {
-                
-                case .success(let data):
-                
-                    self.paymentInfo = data
-                    self.paymentInfoTableView.reloadData()
-                
-                case .failure(let error):
+        APIFullRequest {users in
             
-                    self.alert(messageTitle: "Falha ao logar!",
-                                    message: "erro: \(error)",
-                                    buttonTitle: "Ok")
+            if let users = users {
+                
+                if let paymentReceiverData = self.paymentReceiverData(self.paymentValue,
+                                                                      self.receiverKey,
+                                                                      users) {
+                    self.paymentInfo = paymentReceiverData
+                    self.paymentInfoTableView.reloadData()
                 }
+            }
         }
         
         paymentInfoTableView.dataSource = self
@@ -50,24 +46,19 @@ class PaymentConfirmView: UIViewController, PaymentConfirmViewModel {
     
     @IBAction func confirmButton(_ sender: UIButton) {
         
-        pixPayment(Int(paymentValue) ?? 0,
-                   user,
-                   receiverKey) {result, error in
+        APIFullRequest {users in
             
-            if result {
+            if let users = users {
                 
-                let homeView = HomeView(nibName: "HomeView", bundle: nil)
-                homeView.modalPresentationStyle = .fullScreen
-                homeView.user = self.user
-                self.present(homeView, animated: true, completion: nil)
-            }
-            else {
-                
-                if let error = error {
+                if self.payment(Int(self.paymentValue) ?? 0,
+                                self.user,
+                                self.receiverKey,
+                                users) {
                     
-                    self.alert(messageTitle: "Falha",
-                                    message: "Erro: \(error)",
-                                    buttonTitle: "Ok")
+                    let homeView = HomeView(nibName: "HomeView", bundle: nil)
+                    homeView.modalPresentationStyle = .fullScreen
+                    homeView.user = self.user
+                    self.present(homeView, animated: true, completion: nil)
                 }
                 else {
                     

@@ -52,7 +52,6 @@
 		14A666A528554F530013037A /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A666A328554F530013037A /* CardView.swift */; };
 		14A666A628554F530013037A /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14A666A428554F530013037A /* CardView.xib */; };
 		14DF47CD2864D8D5006B7088 /* PaymentConfirmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DF47CC2864D8D5006B7088 /* PaymentConfirmViewModel.swift */; };
-		14EAA46D2868705D00604C81 /* PaymentConfirmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EAA46C2868705D00604C81 /* PaymentConfirmModel.swift */; };
 		14F1FA862854C99300FC5422 /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F1FA852854C99300FC5422 /* HistoryModel.swift */; };
 		14F1FA8A2854D49E00FC5422 /* MenuOptionsCellUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F1FA882854D49E00FC5422 /* MenuOptionsCellUtils.swift */; };
 		14F1FA8B2854D49E00FC5422 /* MenuOptionsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14F1FA892854D49E00FC5422 /* MenuOptionsCell.xib */; };
@@ -120,7 +119,6 @@
 		14AA160428521C4100D5D4DC /* UIColor+Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Random.swift"; sourceTree = "<group>"; };
 		14AA160528521C4100D5D4DC /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		14DF47CC2864D8D5006B7088 /* PaymentConfirmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PaymentConfirmViewModel.swift; path = Fourbank/PixArea/PaymentConfirmViewModel.swift; sourceTree = SOURCE_ROOT; };
-		14EAA46C2868705D00604C81 /* PaymentConfirmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PaymentConfirmModel.swift; path = Fourbank/appUtils/PaymentConfirmModel.swift; sourceTree = SOURCE_ROOT; };
 		14F1FA852854C99300FC5422 /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
 		14F1FA882854D49E00FC5422 /* MenuOptionsCellUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOptionsCellUtils.swift; sourceTree = "<group>"; };
 		14F1FA892854D49E00FC5422 /* MenuOptionsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuOptionsCell.xib; sourceTree = "<group>"; };
@@ -263,17 +261,8 @@
 			children = (
 				14157ED12860019B00C42CBB /* ViewModel */,
 				14157ED02860019700C42CBB /* View */,
-				14157ECF2860019100C42CBB /* Model */,
 			);
 			path = PaymentConfirm;
-			sourceTree = "<group>";
-		};
-		14157ECF2860019100C42CBB /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				14EAA46C2868705D00604C81 /* PaymentConfirmModel.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		14157ED02860019700C42CBB /* View */ = {
@@ -790,7 +779,6 @@
 				14F1FA8A2854D49E00FC5422 /* MenuOptionsCellUtils.swift in Sources */,
 				1473F1C9285399860072A9A1 /* HistoryView.swift in Sources */,
 				09109EBB2861ECAC0038DCD6 /* PerfilViewCell.swift in Sources */,
-				14EAA46D2868705D00604C81 /* PaymentConfirmModel.swift in Sources */,
 				14157EC8285FC91B00C42CBB /* ViewCode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

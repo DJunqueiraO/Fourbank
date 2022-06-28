@@ -10,140 +10,114 @@ import Alamofire
 
 protocol PaymentConfirmViewModel {
     
-    func setup(_ value: String,
-               _ key: String,
-               completion: @escaping (Result<[[String]], Error>) -> Void)
-    
-    func pixPayment(_ value: Int,
-                    _ id: String,
-                    _ key: String,
-                    completion: @escaping (Bool, Error?) -> Void)
+    func paymentReceiverData(_ value: String,
+                             _ key: String,
+                             _ users: [User]) -> [[String]]?
+    func payment(_ value: Int,
+                 _ id: String,
+                 _ key: String,
+                 _ users: [User]) -> Bool
+    func moment(_ today: Date) -> [String]
 }
     
 extension PaymentConfirmViewModel {
     
-    func setup(_ value: String,
-               _ key: String,
-               completion: @escaping (Result<[[String]], Error>) -> Void) {
+    func paymentReceiverData(_ value: String,
+                             _ key: String,
+                             _ users: [User]) -> [[String]]? {
          
-        let url = "https://62ad2075402135c7acbce26b.mockapi.io/api/v1/account3"
-         
-        AF.request(url).responseJSON {response in
-             
-            if let data = response.data {
-                 
-                do {
-                    let users: [User] = try JSONDecoder().decode([User].self, from: data)
-                    
-                    let today = Date()
-                    let moment = moment(today)
-                    
-                    for user in users {
-                        
-                        if user.emailPix == key ||
-                           user.cpfPix == key ||
-                           user.cellPhonePix == key ||
-                           user.randowKeyPix == key {
-                            
-                            completion(.success([["Beneficiário:",user.name],
-                                                 ["Valor:",value],
-                                                 ["Data do pagamento:","\(moment[0])"],
-                                                 ["Creditar esse valor em:",user.account],
-                                                 ["CPF:",user.cpf],
-                                                 ["Instituição:",user.bank],
-                                                 ["Agência:",user.agency]]))
-                        }
-                    }
-                }
-                catch {
-                     
-                    completion(.failure(error))
-                }
+        let today = Date()
+        
+        let moment = moment(today)
+        
+        for user in users {
+            
+            if user.emailPix == key ||
+               user.cpfPix == key ||
+               user.cellPhonePix == key ||
+               user.randowKeyPix == key {
+                
+                return [["Beneficiário:",user.name],
+                        ["Valor:",value],
+                        ["Data do pagamento:","\(moment[0])"],
+                        ["Creditar esse valor em:",user.account],
+                        ["CPF:",user.cpf],
+                        ["Instituição:",user.bank],
+                        ["Agência:",user.agency]]
             }
         }
+        return nil
     }
     
-    func pixPayment(_ value: Int,
-                    _ id: String,
-                    _ key: String,
-                    completion: @escaping (Bool, Error?) -> Void) {
+    func payment(_ value: Int,
+                 _ id: String,
+                 _ key: String,
+                 _ users: [User]) -> Bool {
 
-         let url = "https://62ad2075402135c7acbce26b.mockapi.io/api/v1/account3"
+        var result = true
+        let url = "https://62baed237bdbe01d52938975.mockapi.io/api/users"
+        
+        for user in users {
 
-         AF.request(url).responseJSON {response in
-
-            if let data = response.data {
-
-                do {
-                    let users: [Payment] = try JSONDecoder().decode([Payment].self, from: data)
-                    var result: Bool = false
+            if user.id == id {
+                
+                result = true
+                
+                let newBalance = user.accountBalance - value
+                
+                let today = Date()
+                let moment = moment(today)
+                
+                var parameters: [String: Any] = ["accountBalance": newBalance as Any,
+                                                 "debited": "\(user.debited)#R$ \(value) - \(moment[0]) \(moment[1]) \(moment[2])#" as Any]
+                if user.debited == "" {
                     
-                    for user in users {
-
-                        if user.id == id {
-                            
-                            result = true
-                            
-                            let newBalance = user.accountBalance - value
-                            
-                            let today = Date()
-                            let moment = moment(today)
-                            
-                            var parameters: [String: Any] = ["accountBalance": newBalance as Any,
-                                                             "debited": "\(user.debited)#R$ \(value) - \(moment[0]) \(moment[1]) \(moment[2])#" as Any]
-                            if user.debited == "" {
-                                
-                                parameters = ["accountBalance": newBalance as Any,
-                                              "debited": "R$ \(value) - \(moment[0]) \(moment[1]) \(moment[2])#" as Any]
-                            }
-                            
-                            AF.request("https://62ad2075402135c7acbce26b.mockapi.io/api/v1/account3/\(user.id)",
-                                       method: .put,
-                                       parameters: parameters,
-                                       encoding: JSONEncoding.default).responseJSON {response in
-                                
-                                print("success")
-                            }
-                        }
-                        
-                        if user.emailPix == key ||
-                           user.cpfPix == key ||
-                           user.cellphonePix == key ||
-                           user.randowKeyPix == key {
-                            
-                            result = true
-                            
-                            let newBalance = user.accountBalance + value
-                            
-                            let today = Date()
-                            let moment = moment(today)
-                            
-                            var parameters: [String: Any] = ["accountBalance": newBalance as Any,
-                                                             "credited": "\(user.credited)R$ \(value) - \(moment[0]) \(moment[1]) \(moment[2])#" as Any]
-                            if user.credited == "" {
-                                
-                                parameters = ["accountBalance": newBalance as Any,
-                                              "credited": "R$ \(value) - \(moment[0]) \(moment[1]) \(moment[2])#" as Any]
-                            }
-                            
-                            AF.request("https://62ad2075402135c7acbce26b.mockapi.io/api/v1/account3/\(user.id)",
-                                       method: .put,
-                                       parameters: parameters,
-                                       encoding: JSONEncoding.default).responseJSON {response in
-                                
-                                print("success")
-                            }
-                        }
-                    }
-
-                    completion(result, nil)
+                    parameters = ["accountBalance": newBalance as Any,
+                                  "debited": "R$ \(value) - \(moment[0]) \(moment[1]) \(moment[2])#" as Any]
                 }
-                catch {
-
-                    completion(false, error)
+                            
+                AF.request("\(url)/\(user.id)",
+                           method: .put,
+                           parameters: parameters,
+                           encoding: JSONEncoding.default).responseJSON {response in
+                    
+                    print("success")
                 }
             }
+                        
+            if user.emailPix == key ||
+               user.cpfPix == key ||
+               user.cellPhonePix == key ||
+               user.randowKeyPix == key {
+                
+                result = true
+                
+                let newBalance = user.accountBalance + value
+                
+                let today = Date()
+                let moment = moment(today)
+                
+                var parameters: [String: Any] = ["accountBalance": newBalance as Any,
+                                                 "credited": "\(user.credited)R$ \(value) - \(moment[0]) \(moment[1]) \(moment[2])#" as Any]
+                if user.credited == "" {
+                    
+                    parameters = ["accountBalance": newBalance as Any,
+                                  "credited": "R$ \(value) - \(moment[0]) \(moment[1]) \(moment[2])#" as Any]
+                }
+                
+                AF.request("\(url)/\(user.id)",
+                           method: .put,
+                           parameters: parameters,
+                           encoding: JSONEncoding.default).responseJSON {response in
+                    
+                    print("success")
+                }
+            }
+            else {
+                result  = false
+            }
         }
+        return result
     }
     
     func moment(_ today: Date) -> [String] {

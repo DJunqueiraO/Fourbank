@@ -348,10 +348,27 @@ extension RegisterView {
                                     monthlyIncome,
                                     accountType)
                        
-                   finalAlert("Parabéns",
+                   registerFinalAlert("Parabéns",
                               "Seu cadastro foi concluido com sucesso!",
                               "Ok")
-           }
-       }
+            }
+        }
+    }
+    
+    func registerFinalAlert(_ messageTitle: String,
+                    _ message: String,
+                    _ buttonTitle: String) {
+        
+        let alert = UIAlertController(title: messageTitle, message: message, preferredStyle: .alert)
+        let loginView = LoginView(nibName: "LoginView", bundle: nil)
+        loginView.modalPresentationStyle = .fullScreen
+        
+        let alertAction = UIAlertAction(title: buttonTitle, style: .default){action in
+            
+            self.present(loginView, animated: true, completion: nil)
+        }
+        alert.addAction(alertAction)
+        
+        present(alert, animated: true, completion: nil)
     }
 }
