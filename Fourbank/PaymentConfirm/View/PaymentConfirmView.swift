@@ -50,22 +50,15 @@ class PaymentConfirmView: UIViewController, PaymentConfirmViewModel {
             
             if let users = users {
                 
-                if self.payment(Int(self.paymentValue) ?? 0,
+                self.payment(Int(self.paymentValue) ?? 0,
                                 self.user,
                                 self.receiverKey,
-                                users) {
+                                users)
                     
-                    let homeView = HomeView(nibName: "HomeView", bundle: nil)
-                    homeView.modalPresentationStyle = .fullScreen
-                    homeView.user = self.user
-                    self.present(homeView, animated: true, completion: nil)
-                }
-                else {
-                    
-                    self.alert(messageTitle: "Falha",
-                                    message: "Não foi possivel efetuar transação",
-                                    buttonTitle: "Ok")
-                }
+                let homeView = HomeView(nibName: "HomeView", bundle: nil)
+                homeView.modalPresentationStyle = .fullScreen
+                homeView.user = self.user
+                self.present(homeView, animated: true, completion: nil)
             }
         }
     }

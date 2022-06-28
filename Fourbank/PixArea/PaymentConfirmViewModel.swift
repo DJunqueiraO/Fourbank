@@ -16,7 +16,7 @@ protocol PaymentConfirmViewModel {
     func payment(_ value: Int,
                  _ id: String,
                  _ key: String,
-                 _ users: [User]) -> Bool
+                 _ users: [User])
     func moment(_ today: Date) -> [String]
 }
     
@@ -52,16 +52,12 @@ extension PaymentConfirmViewModel {
     func payment(_ value: Int,
                  _ id: String,
                  _ key: String,
-                 _ users: [User]) -> Bool {
-
-        var result = true
+                 _ users: [User]) {
         let url = "https://62baed237bdbe01d52938975.mockapi.io/api/users"
         
         for user in users {
 
             if user.id == id {
-                
-                result = true
                 
                 let newBalance = user.accountBalance - value
                 
@@ -90,8 +86,6 @@ extension PaymentConfirmViewModel {
                user.cellPhonePix == key ||
                user.randowKeyPix == key {
                 
-                result = true
-                
                 let newBalance = user.accountBalance + value
                 
                 let today = Date()
@@ -113,11 +107,7 @@ extension PaymentConfirmViewModel {
                     print("success")
                 }
             }
-            else {
-                result  = false
-            }
         }
-        return result
     }
     
     func moment(_ today: Date) -> [String] {
