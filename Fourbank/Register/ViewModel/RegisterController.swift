@@ -11,25 +11,33 @@ import Alamofire
 
 class RegisterController: UIViewController {
      
-    func registerAPI(_ user: RegisterUser) {
+    func registerAPI(_ name: String,
+                     _ cpf: String,
+                     _ password: String,
+                     _ email: String,
+                     _ cellPhone: String,
+                     _ birthDate: String,
+                     _ street: String,
+                     _ number: String,
+                     _ cep: String,
+                     _ district: String,
+                     _ city: String,
+                     _ state: String) {
 
-        let parameters: [String: Any] = ["name": user.name as Any,
-                                         "cpf": user.cpf as Any,
-                                         "password": user.password as Any,
-                                         "email": user.email as Any,
-                                         "cellphone": user.cellphone as Any,
-                                         "birthDate": user.birthDate as Any,
-                                         "monthlyIncome": user.monthlyIncome as Any,
-                                         "street": user.street as Any,
-                                         "number": user.number as Any,
-                                         "cep": user.cep as Any,
-                                         "district": user.district as Any,
-                                         "city": user.city as Any,
-                                         "state": user.state as Any,
-                                         "credited": "",
-                                         "debited": ""]
+        let parameters: [String: Any] = ["name": name as Any,
+                                         "birthDate": birthDate as Any,
+                                         "cpf": cpf as Any,
+                                         "cellPhone": cellPhone as Any,
+                                         "email": email as Any,
+                                         "password": password as Any,
+                                         "street": street as Any,
+                                         "cep": cep as Any,
+                                         "district": district as Any,
+                                         "city": city as Any,
+                                         "state": state as Any]
+        
 
-        AF.request("https://62ad2075402135c7acbce26b.mockapi.io/api/v1/account3",
+        AF.request("https://62baed237bdbe01d52938975.mockapi.io/api/users",
                    method: .post,
                    parameters: parameters,
                    encoding: JSONEncoding.default).responseJSON {response in

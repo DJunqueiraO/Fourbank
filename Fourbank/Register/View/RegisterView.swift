@@ -329,22 +329,19 @@ extension RegisterView {
                if validateTextField(registerTextField.text ?? "") {
 
                    stage += 1
-                       
-                   let user = RegisterUser(name: name ?? "",
-                                           cpf: cpf ?? "",
-                                           password: password ?? "",
-                                           email: email ?? "",
-                                           cellphone: cellphone ?? "",
-                                           birthDate: birthDate ?? "",
-                                           monthlyIncome: Int(monthlyIncome ?? 0),
-                                           street: street ?? "",
-                                           number: "0",
-                                           cep: cep ?? "",
-                                           district: "",
-                                           city: "",
-                                           state: "")
-                   
-                   registerAPI(user)
+                    
+                   registerAPI(name ?? "",
+                               cpf ?? "",
+                               password ?? "",
+                               email ?? "",
+                               cellphone ?? "",
+                               birthDate ?? "",
+                               street ?? "",
+                               number ?? "",
+                               cep ?? "",
+                               district ?? "",
+                               city ?? "",
+                               state ?? "")
                        
                    registerCoreData(name,
                                     cpf,
