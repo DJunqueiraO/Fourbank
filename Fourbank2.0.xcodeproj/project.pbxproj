@@ -20,7 +20,6 @@
 		1410D98128662A6F00866E10 /* ValidateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1410D98028662A6F00866E10 /* ValidateUtils.swift */; };
 		14140D812852DE780050ABB4 /* HomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14140D802852DE780050ABB4 /* HomeView.xib */; };
 		14140D832852E1650050ABB4 /* RegisterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14140D822852E1650050ABB4 /* RegisterView.xib */; };
-		14157EC2285FBEDB00C42CBB /* PixModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14157EC1285FBEDB00C42CBB /* PixModel.swift */; };
 		14157EC6285FC0F500C42CBB /* PixViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14157EC4285FC0F500C42CBB /* PixViewCell.swift */; };
 		14157EC7285FC0F500C42CBB /* PixViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14157EC5285FC0F500C42CBB /* PixViewCell.xib */; };
 		14157EC8285FC91B00C42CBB /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AA160328521C4100D5D4DC /* ViewCode.swift */; };
@@ -89,7 +88,6 @@
 		1410D98028662A6F00866E10 /* ValidateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateUtils.swift; sourceTree = "<group>"; };
 		14140D802852DE780050ABB4 /* HomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeView.xib; sourceTree = "<group>"; };
 		14140D822852E1650050ABB4 /* RegisterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterView.xib; sourceTree = "<group>"; };
-		14157EC1285FBEDB00C42CBB /* PixModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PixModel.swift; path = ../View/PixModel.swift; sourceTree = "<group>"; };
 		14157EC4285FC0F500C42CBB /* PixViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixViewCell.swift; sourceTree = "<group>"; };
 		14157EC5285FC0F500C42CBB /* PixViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PixViewCell.xib; sourceTree = "<group>"; };
 		14157ECA285FEE1500C42CBB /* PaymentViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewCell.swift; sourceTree = "<group>"; };
@@ -195,18 +193,9 @@
 		140BC9E728565412000142FB /* Payments */ = {
 			isa = PBXGroup;
 			children = (
-				140BC9EA28565437000142FB /* ViewModel */,
 				140BC9E928565431000142FB /* View */,
-				140BC9E82856542B000142FB /* Model */,
 			);
 			path = Payments;
-			sourceTree = "<group>";
-		};
-		140BC9E82856542B000142FB /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		140BC9E928565431000142FB /* View */ = {
@@ -216,13 +205,6 @@
 				140BC9EC285654A2000142FB /* PaymentView.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		140BC9EA28565437000142FB /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		140BC9F4285695F0000142FB /* appUtils */ = {
@@ -253,7 +235,6 @@
 			children = (
 				14A4F82D286091BB00411F94 /* ViewModel */,
 				140BC9F82856990D000142FB /* View */,
-				1432CC45285CC1D000122B9A /* Model */,
 			);
 			path = Pix;
 			sourceTree = "<group>";
@@ -338,14 +319,6 @@
 				1432CC41285CA5B300122B9A /* CardViewCell.swift */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		1432CC45285CC1D000122B9A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				14157EC1285FBEDB00C42CBB /* PixModel.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		1432CC46285CDDA600122B9A /* BarCode */ = {
@@ -790,7 +763,6 @@
 				1D17374D2847D91100EE9DDF /* NewsView.swift in Sources */,
 				1469D127285A564800A860DA /* PerfilView.swift in Sources */,
 				096AD1972852593900E94382 /* HomeView.swift in Sources */,
-				14157EC2285FBEDB00C42CBB /* PixModel.swift in Sources */,
 				1D1737492847D91100EE9DDF /* AppDelegate.swift in Sources */,
 				1D1737712847EAB000EE9DDF /* RegisterView.swift in Sources */,
 				14F1FA862854C99300FC5422 /* HistoryModel.swift in Sources */,
