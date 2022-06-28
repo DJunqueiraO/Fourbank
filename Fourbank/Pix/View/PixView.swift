@@ -34,20 +34,15 @@ class PixView: UIViewController, PixController {
         
         super.viewDidLoad()
         
-        setup(user) {result in
+        APIFullRequest {users in
             
-            switch result {
+            if let users = users {
                 
-                case .success(let data):
+                let namesNdKeys = self.namesNdKeys(self.user, users)
                 
-                    self.pixKeys = data[1]
-                    self.pixNames = data[0]
-                    self.contactsCollectionView.reloadData()
-                
-                case .failure(let error):
-            
-                    self.alert(messageTitle: "Falha ao carregar dados!", message: "erro: \(error)", buttonTitle: "Ok")
-                }
+                self.pixKeys = namesNdKeys.0
+                self.pixNames = namesNdKeys.1
+            }
         }
         
         self.contactsCollectionView.delegate = self
@@ -82,27 +77,21 @@ class PixView: UIViewController, PixController {
             
             if validateTextField(pixTextField.text ?? ""){
                 
-                validatePixKey(pixTextField.text ?? "") {result, error in
+                APIFullRequest {users in
                     
-                    if result {
-                        
-                        let paymentConfirmView = PaymentConfirmView(nibName: "PaymentConfirmView", bundle: nil)
-                        paymentConfirmView.modalPresentationStyle = .fullScreen
-                        paymentConfirmView.paymentValue = self.paymentValue
-                        paymentConfirmView.receiverKey = self.pixTextField.text ?? ""
-                        paymentConfirmView.user = self.user
-                        self.present(paymentConfirmView, animated: true, completion: nil)
-                    }
-                    else {
-                        
-                        if let error = error {
+                    if let users = users {
+                    
+                        if self.validatePixKey(self.pixTextField.text ?? "",
+                                               users) {
                             
-                            self.alert(messageTitle: "Falha",
-                                            message: "Erro: \(error)",
-                                            buttonTitle: "Ok")
+                            let paymentConfirmView = PaymentConfirmView(nibName: "PaymentConfirmView", bundle: nil)
+                            paymentConfirmView.modalPresentationStyle = .fullScreen
+                            paymentConfirmView.paymentValue = self.paymentValue
+                            paymentConfirmView.receiverKey = self.pixTextField.text ?? ""
+                            paymentConfirmView.user = self.user
+                            self.present(paymentConfirmView, animated: true, completion: nil)
                         }
                         else {
-                            
                             self.alert(messageTitle: "Falha",
                                             message: "Essa chave não foi localizada",
                                             buttonTitle: "Ok")
