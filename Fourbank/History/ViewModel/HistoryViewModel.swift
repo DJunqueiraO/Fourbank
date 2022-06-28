@@ -10,47 +10,12 @@ import Alamofire
 
 protocol HistoryViewModel {
     
-    func setup(_ id: String,
-               completion: @escaping (Result<([String],[String]), Error>) -> Void)
+    func arrayToStringConverter(_ string: String) -> [String]
 }
 
 extension HistoryViewModel {
     
-    func setup(_ id: String,
-               completion: @escaping (Result<([String],[String]), Error>) -> Void) {
-         
-        let url = "https://62ad2075402135c7acbce26b.mockapi.io/api/v1/account3"
-         
-        AF.request(url).responseJSON {response in
-             
-            if let data = response.data {
-                 
-                do {
-                    let users: [Payment] = try JSONDecoder().decode([Payment].self, from: data)
-                    
-                    var credited: [String] = []
-                    var debited: [String] = []
-                    
-                    for user in users {
-                        
-                        if user.id == id {
-                            
-                            credited = stringConverter(user.credited)
-                            debited = stringConverter(user.debited)
-                        }
-                    }
-                   
-                    completion(.success((credited, debited)))
-                }
-                catch {
-                     
-                    completion(.failure(error))
-                }
-            }
-        }
-    }
-    
-    func stringConverter(_ string: String) -> [String] {
+    func arrayToStringConverter(_ string: String) -> [String] {
         
         var word = ""
         var words: [String] = []

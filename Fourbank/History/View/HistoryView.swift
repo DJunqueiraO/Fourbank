@@ -25,22 +25,12 @@ class HistoryView: UIViewController, HistoryViewModel {
         
         super.viewDidLoad()
         
-        setup(user) { [self]result in
+        APIRequest(user) {user in
             
-            switch result {
+            if let user = user {
                 
-                case .success(let data):
-                
-                    self.credited = data.0
-                    self.debited = data.1
-                    print(debited)
-                
-                    self.paymentHistoryTableCredited.reloadData()
-                    self.paymentHistoryTableDebited.reloadData()
-                    
-                case .failure(let error):
-                
-                    print(error)
+                self.credited = self.arrayToStringConverter(user.credited)
+                self.debited = self.arrayToStringConverter(user.debited)
             }
         }
         
