@@ -40,8 +40,9 @@ class PixView: UIViewController, PixController {
                 
                 let namesNdKeys = self.namesNdKeys(self.user, users)
                 
-                self.pixKeys = namesNdKeys.0
-                self.pixNames = namesNdKeys.1
+                self.pixNames = namesNdKeys.0
+                self.pixKeys = namesNdKeys.1
+                self.contactsCollectionView.reloadData()
             }
         }
         

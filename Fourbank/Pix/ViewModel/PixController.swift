@@ -34,41 +34,6 @@ extension PixController {
         }
         return result
     }
-    
-//    func validatePixKey(_ key: String,
-//                        completion: @escaping (Bool, Error?) -> Void) {
-//
-//         let url = "https://62ad2075402135c7acbce26b.mockapi.io/api/v1/account3"
-//
-//         AF.request(url).responseJSON {response in
-//
-//            if let data = response.data {
-//
-//                do {
-//
-//                    let users: [User] = try JSONDecoder().decode([User].self, from: data)
-//                    var result: Bool = false
-//
-//                    for user in users {
-//
-//                        if user.emailPix == key ||
-//                           user.cpfPix == key ||
-//                           user.cellPhonePix == key ||
-//                           user.randowKeyPix == key {
-//
-//                            result = true
-//                        }
-//                    }
-//
-//                    completion(result, nil)
-//                }
-//                catch {
-//
-//                     completion(false, error)
-//                }
-//            }
-//        }
-//    }
         
     func namesNdKeys(_ id: String,
                      _ users: [User]) -> ([String],[String]) {
