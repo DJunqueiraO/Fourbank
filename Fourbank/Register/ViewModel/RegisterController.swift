@@ -12,13 +12,12 @@ import Alamofire
 class RegisterController: UIViewController {
      
     func registerAPI(_ name: String,
-                     _ cpf: String,
-                     _ password: String,
-                     _ email: String,
-                     _ cellPhone: String,
                      _ birthDate: String,
+                     _ cpf: String,
+                     _ cellPhone: String,
+                     _ email: String,
+                     _ password: String,
                      _ street: String,
-                     _ number: String,
                      _ cep: String,
                      _ district: String,
                      _ city: String,

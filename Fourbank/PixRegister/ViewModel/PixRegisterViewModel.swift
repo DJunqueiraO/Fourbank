@@ -9,176 +9,101 @@ import Foundation
 import Alamofire
 import UIKit
 
-protocol PixRegisterViewModel {
+class PixRegisterViewModel: UIViewController {
     
     func randomPixKeyGeneratorAPI(_ id: String,
-                                  completion: @escaping (Bool, Error?) -> Void)
-    func registerPix(_ id: String,
-                     _ key: String,
-                     completion: @escaping (Bool, Error?) -> Void)
-}
+                                  _ users: [User]) {
+    var newRandowKey = ""
 
-extension PixRegisterViewModel {
-    
-    func randomPixKeyGeneratorAPI(_ id: String,
-                                  completion: @escaping (Bool, Error?) -> Void) {
-        
-        let url = "https://62ad2075402135c7acbce26b.mockapi.io/api/v1/account3"
-        
-        AF.request(url).responseJSON {response in
+        repeat {
 
-            if let data = response.data {
-
-                do {
-
-                    let users: [User] = try JSONDecoder().decode([User].self, from: data)
-
-                    var newRandowKey = ""
-
-                    repeat {
-
-                        newRandowKey = String(Int.random(in: 0...100))
-                        for user in users {
-                            
-                            if user.randowKeyPix == newRandowKey {
-                                newRandowKey = ""
-                            }
-                        }
-                    } while newRandowKey == ""
-
-                    let parameter: [String: Any] = ["randowKeyPix": newRandowKey]
-
-                    AF.request("\(url)/\(id)",
-                               method: .put,
-                               parameters: parameter,
-                               encoding: JSONEncoding.default).responseJSON {response in
-                        print("success")
-                    }
-
-                    completion(true, nil)
-                }
-                catch {
-
-                    completion(false, error)
-                }
-            }
-        }
-    }
-    
-    func registerPix(_ id: String,
-                     _ key: String,
-                     completion: @escaping (Bool, Error?) -> Void) {
-        
-        let url = "https://62ad2075402135c7acbce26b.mockapi.io/api/v1/account3"
-        
-        var parameter: [String: String] = ["":""]
-        
-        AF.request(url).responseJSON {response in
-            
-            if let data = response.data {
+            newRandowKey = String(Int.random(in: 0...100))
+            for user in users {
                 
-                do {
-                    
-                    let users: [User] = try JSONDecoder().decode([User].self, from: data)
-                    var result: Bool = true
-                    
-                    if self.validateEmail(key) {
-                        
-                        parameter = ["emailPix":key]
-                        
-                        for user in users {
-                            
-                            if user.emailPix == key {
-                                
-                                parameter = ["":""]
-                            }
-                        }
-                    }
-                    else if self.validateCellPhone(key) {
-                        
-                        parameter = ["cellphonePix":key]
-                        
-                        for user in users {
-                            
-                            if user.emailPix == key {
-                                
-                                parameter = ["":""]
-                            }
-                        }
-                    }
-                    else if self.validateCPF(key) {
-                        
-                        parameter = ["cpfPix":key]
-                        
-                        for user in users {
-                            
-                            if user.emailPix == key {
-                                
-                                parameter = ["":""]
-                            }
-                        }
-                    }
-                    else {
-                        
-                        parameter = ["":""]
-                    }
-                    
-                    if parameter != ["":""] {
-                        
-                        AF.request("\(url)/\(id)",
-                                   method: .put,
-                                   parameters: parameter,
-                                   encoding: JSONEncoding.default).responseJSON {response in
-                            print("success")
-                        }
-                    }
-                    else {
-                        result = false
-                        print("Nao foi possivel efetuar cadastro")
-                    }
-                    
-                    completion(result, nil)
+                if user.randowKeyPix == newRandowKey {
+                    newRandowKey = ""
                 }
-                catch {
+            }
+        } while newRandowKey == ""
+
+        let parameter: [String: Any] = ["randowKeyPix": newRandowKey]
+
+        AF.request("https://62baed237bdbe01d52938975.mockapi.io/api/users/\(id)",
+                   method: .put,
+                   parameters: parameter,
+                   encoding: JSONEncoding.default).responseJSON {response in
+            
+            self.alert(messageTitle: "Sucesso!",
+                            message: "Sua Chave foi cadastrada com sucesso",
+                            buttonTitle: "Ok")
+            print("success")
+        }
+    }
+    
+    func registerPix(_ id: String,
+                     _ key: String,
+                     _ users: [User]) {
+        var parameter = ["":""]
                     
-                    completion(false, error)
+        if self.validateEmail(key) {
+            
+            parameter = ["emailPix":key]
+            
+            for user in users {
+                
+                if user.emailPix == key {
+                    
+                    parameter = ["":""]
                 }
             }
         }
-    }
-    
-    func validateEmail(_ email: String) -> Bool {
-        
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-
-        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        
-        if emailPred.evaluate(with: email) {
+        else if self.validateCellPhone(key) {
             
-            return true
-        }
-        return false
-    }
-    
-    func validateCellPhone(_ phone: String) -> Bool {
-        
-        let phoneRegEx = "\\([0-9]{2}+\\)[0-9]{5}+-[0-9]{4}||[0-9]{11}"
-
-        let phonePred = NSPredicate(format:"SELF MATCHES %@", phoneRegEx)
-        
-        if phonePred.evaluate(with: phone) {
+            parameter = ["cellphonePix":key]
             
-            return true
+            for user in users {
+                
+                if user.emailPix == key {
+                    
+                    parameter = ["":""]
+                }
+            }
         }
-        return false
-    }
-    
-    func validateCPF(_ cpf: String) -> Bool {
-        
-        if cpf.isCPF {
+        else if self.validateCPF(key) {
             
-            return true
+            parameter = ["cpfPix":key]
+            
+            for user in users {
+                
+                if user.emailPix == key {
+                    
+                    parameter = ["":""]
+                }
+            }
         }
-        return false
+        else {
+            
+            parameter = ["":""]
+        }
+        
+        if parameter != ["":""] {
+            
+            AF.request("https://62baed237bdbe01d52938975.mockapi.io/api/users/\(id)",
+                       method: .put,
+                       parameters: parameter,
+                       encoding: JSONEncoding.default).responseJSON {response in
+                
+                self.alert(messageTitle: "Sucesso!",
+                                message: "Sua Chave foi cadastrada com sucesso",
+                                buttonTitle: "Ok")
+                print("success")
+            }
+        }
+        else {
+            
+            self.alert(messageTitle: "Falha",
+                            message: "Essa chave pix já existe ou voce digitou um valor inválido",
+                            buttonTitle: "Ok")
+        }
     }
 }

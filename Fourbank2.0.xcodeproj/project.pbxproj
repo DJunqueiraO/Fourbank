@@ -410,16 +410,8 @@
 			children = (
 				146D0B9F28635C7600D1B924 /* ViewModel */,
 				146D0B9A2863591600D1B924 /* View */,
-				146D0B992863590C00D1B924 /* Model */,
 			);
 			path = PixRegister;
-			sourceTree = "<group>";
-		};
-		146D0B992863590C00D1B924 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		146D0B9A2863591600D1B924 /* View */ = {

@@ -7,28 +7,27 @@
 
 import UIKit
 
-class PixRegisterView: UIViewController, PixRegisterViewModel {
+class PixRegisterView: PixRegisterViewModel{
 
     @IBOutlet weak var pixRegisterTextField: UITextField!
+    @IBOutlet weak var tabBar: UITabBar!
     
     var user = ""
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        tabBar.delegate = self
     }
     
     @IBAction func randomKeyButton(_ sender: UIButton) {
         
-        randomPixKeyGeneratorAPI(user) {result, error in
-
-            if result {
+        APIFullRequest {users in
+            
+            if let users = users {
                 
-                self.alert(messageTitle: "Sucesso", message: "Sua chave aleatoria foi cadastrada com sucesso", buttonTitle: "Ok")
-            }
-            else {
-                
-                self.alert(messageTitle: "Falha ao cadastrar", message: "erro: \(error!)", buttonTitle: "Ok")
+                self.randomPixKeyGeneratorAPI(self.user, users)
             }
         }
     }
@@ -37,39 +36,15 @@ class PixRegisterView: UIViewController, PixRegisterViewModel {
         
         if validateTextField(pixRegisterTextField.text ?? "") {
             
-            registerPix(user,
-                        pixRegisterTextField.text ?? "") {result, error in
-
-                if result {
-
-                    self.alert(messageTitle: "Sucesso!",
-                                    message: "Sua Chave foi cadastrada com sucesso",
-                                    buttonTitle: "Ok")
-                    print("Success")
-                }
-                else {
+            APIFullRequest {users in
+                
+                if let users = users {
                     
-                    if let error = error {
-                        
-                        self.alert(messageTitle: "Falha",
-                                        message: "Erro: \(error)",
-                                        buttonTitle: "Ok")
-                        print(error)
-                    }
-                    else {
-                        
-                        self.alert(messageTitle: "Falha",
-                                        message: "Essa chave pix já existe ou voce digitou um valor inválido",
-                                        buttonTitle: "Ok")
-                    }
+                    self.registerPix(self.user,
+                                     self.pixRegisterTextField.text ?? "",
+                                     users)
                 }
             }
-        }
-        else {
-            
-            self.alert(messageTitle: "Falha",
-                            message: "Digite uma chave para o cadastro",
-                            buttonTitle: "Ok")
         }
     }
     
@@ -79,5 +54,29 @@ class PixRegisterView: UIViewController, PixRegisterViewModel {
         pixAreaView.modalPresentationStyle = .fullScreen
         pixAreaView.user = user
         present(pixAreaView, animated: true, completion: nil)
+    }
+}
+
+extension PixRegisterView: UITabBarDelegate  {
+    
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        
+        guard let item = item.title else {return}
+        
+        switch item {
+        case "Perfil":
+
+            let perfilView = PerfilView(nibName: "PerfilView", bundle: nil)
+            perfilView.modalPresentationStyle = .fullScreen
+            perfilView.user = user
+            present(perfilView, animated: true, completion: nil)
+
+        default:
+
+            let homeView = HomeView(nibName: "HomeView", bundle: nil)
+            homeView.modalPresentationStyle = .fullScreen
+            homeView.user = user
+            present(homeView, animated: true, completion: nil)
+        }
     }
 }
