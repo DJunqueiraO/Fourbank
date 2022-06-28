@@ -11,45 +11,30 @@ import UIKit
     
 class PerfilViewModel: UIViewController {
     
-    func setup(_ id: String,
-               completion: @escaping (Result<[[String]], Error>) -> Void) {
-         
-        let url = "https://62ad2075402135c7acbce26b.mockapi.io/api/v1/account3"
-         
-        AF.request(url).responseJSON {response in
-             
-            if let data = response.data {
-                 
-                do {
-                     
-                    let users: [PerfilAPI] = try JSONDecoder().decode([PerfilAPI].self, from: data)
+    func perfil(_ id: String,
+                _ users: [User]) -> [[String]]? {
+        
+        for user in users {
+            
+            if user.id == id {
 
-                    for user in users {
-                        if user.id == id {
-                             
-                            completion(.success([["Agência:", user.agency],
-                                                 ["Conta:", user.account],
-                                                 ["Nome:", user.name],
-                                                 ["Email:", user.email],
-                                                 ["Celular:", user.cellphone],
-                                                 ["CEP:", user.cep],
-                                                 ["Logradouro:", user.street],
-                                                 ["Número:", user.number],
-                                                 ["Bairro:", user.neighborhood],
-                                                 ["Cidade:", user.city],
-                                                 ["Estado:", user.state]]))
-//                                                 ["EmailPix:", user.emailPix],
-//                                                 ["CelularPix:", user.cellphonePix],
-//                                                 ["CPFPix:", user.cpfPix]]))
-                        }
-                    }
-                }
-                catch {
-                     
-                    completion(.failure(error))
-                }
+                return [["Agência:", user.agency],
+                        ["Conta:", user.account],
+                        ["Nome:", user.name],
+                        ["Email:", user.email],
+                        ["Celular:", user.cellPhone],
+                        ["CEP:", user.cep],
+                        ["Logradouro:", user.street],
+                        ["Número:", user.number],
+                        ["Bairro:", user.district],
+                        ["Cidade:", user.city],
+                        ["Estado:", user.state],
+                        ["EmailPix:", user.emailPix],
+                        ["CelularPix:", user.cellPhonePix],
+                        ["CPFPix:", user.cpfPix]]
             }
         }
+        return nil
     }
     
     func putOnAPI(_ id: String,
@@ -135,42 +120,42 @@ class PerfilViewModel: UIViewController {
             
                 data = dataToModify
             
-            default: dataType = "state"
+            case 10: dataType = "state"
             
                 data = dataToModify
             
-//            case 11: dataType = "emailPix"
-//
-//                if validateEmail(dataToModify) {
-//
-//                    data = dataToModify
-//                }
-//                else {
-//
-//                    return false
-//                }
-//
-//            case 12: dataType = "cellphonePix"
-//
-//                if validateCellPhone(dataToModify) {
-//
-//                    data = dataToModify
-//                }
-//                else {
-//
-//                    return false
-//                }
-//
-//            default: dataType = "cpfPix"
-//
-//                if validateCPF(dataToModify) {
-//
-//                    data = dataToModify
-//                }
-//                else {
-//
-//                    return false
-//                }
+            case 11: dataType = "emailPix"
+
+                if validateEmail(dataToModify) {
+
+                    data = dataToModify
+                }
+                else {
+
+                    return false
+                }
+
+            case 12: dataType = "cellphonePix"
+
+                if validateCellPhone(dataToModify) {
+
+                    data = dataToModify
+                }
+                else {
+
+                    return false
+                }
+
+            default: dataType = "cpfPix"
+
+                if validateCPF(dataToModify) {
+
+                    data = dataToModify
+                }
+                else {
+
+                    return false
+                }
         }
 
         let parameters: [String: Any] = [dataType: data as Any]

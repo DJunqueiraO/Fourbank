@@ -11,14 +11,14 @@ protocol LoginController {
     
     func login(_ email: String,
                _ password: String,
-               _ users: [RegisterAPIDoEvandro]) -> String?
+               _ users: [User]) -> String?
 }
 
 extension LoginController {
     
     func login(_ email: String,
                _ password: String,
-               _ users: [RegisterAPIDoEvandro]) -> String? {
+               _ users: [User]) -> String? {
         
         for user in users {
 

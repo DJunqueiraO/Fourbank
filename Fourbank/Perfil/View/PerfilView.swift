@@ -24,20 +24,16 @@ class PerfilView: PerfilViewModel {
         
         super.viewDidLoad()
         
-        setup(user) {result in
+        APIFullRequest {users in
             
-            switch result {
-
-                case .success(let data):
-
-                    self.perfilData = data
-                    self.perfilTableView.reloadData()
+            if let users = users {
+                
+                if let perfilData = self.perfil(self.user,
+                                                users) {
                     
-                case .failure(let error):
-
-                    self.alertOther(messageTitle: "Falha ao carregar dados!",
-                                    message: "erro: \(error)",
-                                    buttonTitle: "Ok")
+                    self.perfilData = perfilData
+                    self.perfilTableView.reloadData()
+                }
             }
         }
         
@@ -67,20 +63,16 @@ class PerfilView: PerfilViewModel {
                             message: "Você alterou: \(self.perfilData[self.dataToModify ?? 0][0])",
                             buttonTitle: "Ok")
             
-            setup(user) {result in
+            APIFullRequest {users in
                 
-                switch result {
-
-                    case .success(let data):
-
-                        self.perfilData = data
-                        self.perfilTableView.reloadData()
+                if let users = users {
+                    
+                    if let perfilData = self.perfil(self.user,
+                                                    users) {
                         
-                    case .failure(let error):
-
-                        self.alertOther(messageTitle: "Falha ao carregar dados!",
-                                        message: "erro: \(error)",
-                                        buttonTitle: "Ok")
+                        self.perfilData = perfilData
+                        self.perfilTableView.reloadData()
+                    }
                 }
             }
         }
