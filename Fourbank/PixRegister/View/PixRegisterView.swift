@@ -28,7 +28,8 @@ class PixRegisterView: PixRegisterViewModel{
             if let users = users {
                 
                 self.APIPut(self.user,
-                            self.randomPixKeyGeneratorAPI(self.user, users))
+                            self.randomPixKeyGeneratorAPI(self.user,
+                                                          users))
             }
         }
     }
@@ -42,8 +43,8 @@ class PixRegisterView: PixRegisterViewModel{
                 if let users = users {
                     
                     if let parameter = self.registerPix(self.user,
-                                                         self.pixRegisterTextField.text ?? "",
-                                                         users) {
+                                                        self.pixRegisterTextField.text ?? "",
+                                                        users) {
                         self.APIPut(self.user,
                                     parameter)
                     }
