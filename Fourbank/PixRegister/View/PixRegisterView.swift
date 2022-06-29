@@ -27,7 +27,8 @@ class PixRegisterView: PixRegisterViewModel{
             
             if let users = users {
                 
-                self.randomPixKeyGeneratorAPI(self.user, users)
+                self.APIPut(self.user,
+                            self.randomPixKeyGeneratorAPI(self.user, users))
             }
         }
     }
@@ -40,9 +41,18 @@ class PixRegisterView: PixRegisterViewModel{
                 
                 if let users = users {
                     
-                    self.registerPix(self.user,
-                                     self.pixRegisterTextField.text ?? "",
-                                     users)
+                    if let parameter = self.registerPix(self.user,
+                                                         self.pixRegisterTextField.text ?? "",
+                                                         users) {
+                        self.APIPut(self.user,
+                                    parameter)
+                    }
+                    else {
+                        
+                        self.alert(messageTitle: "Falha",
+                                        message: "Essa chave pix já existe ou voce digitou um valor inválido",
+                                        buttonTitle: "Ok")
+                    }
                 }
             }
         }
