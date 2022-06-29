@@ -15,4 +15,21 @@ extension UIViewController {
         alert.addAction(UIAlertAction(title: buttonTitle, style: .default))
         present(alert, animated: true, completion: nil)
     }
+    
+    func finalAlert(_ messageTitle: String,
+                    _ message: String,
+                    _ buttonTitle: String,
+                    _ goToLocale: UIViewController) {
+        
+        let alert = UIAlertController(title: messageTitle, message: message, preferredStyle: .alert)
+        goToLocale.modalPresentationStyle = .fullScreen
+        
+        let alertAction = UIAlertAction(title: buttonTitle, style: .default){action in
+            
+            self.present(goToLocale, animated: true, completion: nil)
+        }
+        alert.addAction(alertAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
 }
