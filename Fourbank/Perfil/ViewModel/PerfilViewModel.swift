@@ -31,7 +31,7 @@ class PerfilViewModel: UIViewController {
     
     func putOnAPI(_ id: String,
                   _ dataTypeToModify: Int,
-                  _ dataToModify: String) -> Bool {
+                  _ dataToModify: String) -> [String: Any]? {
         
         let dataType: String,
             data: String
@@ -43,14 +43,14 @@ class PerfilViewModel: UIViewController {
                 self.alert(messageTitle: "Falha!",
                                 message: "Você não pode alterar esse dado.",
                                 buttonTitle: "Ok")
-                return false
+                return nil
             
             case 1: dataType = "account"
             
                 self.alert(messageTitle: "Falha!",
                                 message: "Você não pode alterar esse dado.",
                                 buttonTitle: "Ok")
-                return false
+                return nil
             
             case 2: dataType = "name"
             
@@ -60,7 +60,7 @@ class PerfilViewModel: UIViewController {
                 }
                 else {
                     
-                    return false
+                    return nil
                 }
             
             case 3: dataType = "email"
@@ -71,7 +71,7 @@ class PerfilViewModel: UIViewController {
                 }
                 else {
                     
-                    return false
+                    return nil
                 }
             
             case 4: dataType = "cellPhone"
@@ -82,7 +82,7 @@ class PerfilViewModel: UIViewController {
                 }
                 else {
                     
-                    return false
+                    return nil
                 }
             
             case 5: dataType = "cep"
@@ -93,7 +93,7 @@ class PerfilViewModel: UIViewController {
                 }
                 else {
                     
-                    return false
+                    return nil
                 }
             
             case 6: dataType = "street"
@@ -124,7 +124,7 @@ class PerfilViewModel: UIViewController {
                 }
                 else {
 
-                    return false
+                    return nil
                 }
 
             case 12: dataType = "cellPhonePix"
@@ -135,7 +135,7 @@ class PerfilViewModel: UIViewController {
                 }
                 else {
 
-                    return false
+                    return nil
                 }
 
             default: dataType = "cpfPix"
@@ -146,19 +146,10 @@ class PerfilViewModel: UIViewController {
                 }
                 else {
 
-                    return false
+                    return nil
                 }
         }
-
-        let parameters: [String: Any] = [dataType: data as Any]
-
-        AF.request("https://62baed237bdbe01d52938975.mockapi.io/api/users/\(id)",
-                   method: .put,
-                   parameters: parameters,
-                   encoding: JSONEncoding.default).responseJSON {response in
-            
-            print("Success: \(response)")
-        }
-        return true
+        
+        return  [dataType: data as Any]
     }
 }

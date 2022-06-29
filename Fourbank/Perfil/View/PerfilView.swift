@@ -51,13 +51,13 @@ class PerfilView: PerfilViewModel {
     
     @IBAction func putDataButton(_ sender: UIButton) {
         
-        if putOnAPI(user,
-                    dataToModify ?? 0,
-                    dataTextField.text ?? "") {
-        
+        if let parameters = putOnAPI(user,
+                                     dataToModify ?? 0,
+                                     dataTextField.text ?? "") {
+            APIPut(user, parameters)
             self.alert(messageTitle: "Sucesso",
-                            message: "Você alterou: \(self.perfilData[self.dataToModify ?? 0][0])",
-                            buttonTitle: "Ok")
+                       message: "Você alterou \(self.perfilData[self.dataToModify ?? 0][0]) com sucesso",
+                       buttonTitle: "Ok")
             
             APIRequest(user) {user in
                 
