@@ -31,10 +31,7 @@ class RegisterView: RegisterController {
         clientType: String?,
         monthlyIncome: Int16?,
         accountType: Int16?,
-        
-        number: String?,
-        district: String?,
-        state: String?
+        number: String?
     
     override func viewDidLoad() {
         
@@ -322,7 +319,7 @@ extension RegisterView {
                if validateTextField(registerTextField.text ?? "") {
 
                    stage += 1
-                    
+                   
                    APIPost(["name": name as Any,
                             "birthDate": birthDate as Any,
                             "cpf": cpf as Any,
@@ -331,9 +328,23 @@ extension RegisterView {
                             "password": password as Any,
                             "street": street as Any,
                             "cep": cep as Any,
-                            "district": district as Any,
+                            "district": "",
                             "city": city as Any,
-                            "state": state as Any])
+                            "state": "",
+                            "account": "",
+                            "agency": "",
+                            "bank": "",
+                            "accountBalance": 1500,
+                            "rg": "",
+                            "number": "",
+                            "cpfPix": "",
+                            "emailPix": "",
+                            "cellPhonePix": "",
+                            "randowKeyPix": "",
+                            "cardNumber": "",
+                            "id": "",
+                            "credited": "",
+                            "debited": ""])
                        
                    registerCoreData(name,
                                     cpf,

@@ -90,7 +90,10 @@ extension UIViewController {
                    method: .post,
                    parameters: parameters,
                    encoding: JSONEncoding.default).responseJSON {response in
-
+            
+            self.alert(messageTitle: "Sucesso",
+                       message: "Dados cadastrados com sucesso.",
+                       buttonTitle: "Ok")
             print("Success")
         }
     }
@@ -102,7 +105,7 @@ extension UIViewController {
                    method: .put,
                    parameters: parameters,
                    encoding: JSONEncoding.default).responseJSON {response in
-
+            
             print("Success")
         }
     }
@@ -153,7 +156,7 @@ struct User: Codable {
     let account: String
     let agency: String
     let bank: String
-    var accountBalance: Int
+    let accountBalance: Int
     let name: String
     let birthDate: String
     let cpf: String
