@@ -25,7 +25,7 @@ class RegisterView: RegisterController {
         cep: String?, //CADASTRADO
         street, //CADASTRADO
         city, //CADASTRADO
-        cellphone, //CADASTRADO
+        cellPhone, //CADASTRADO
         email: String?, //CADASTRADO
         password, //CADASTRADO
         clientType: String?,
@@ -307,7 +307,7 @@ extension RegisterView {
                if validateTextField(registerTextField.text ?? "") &&
                   validateCellPhone(registerTextField.text ?? "") {
                    
-                   cellphone = registerTextField.text
+                   cellPhone = registerTextField.text
                    stage += 1
                    
                    //preparation for next stage
@@ -323,17 +323,17 @@ extension RegisterView {
 
                    stage += 1
                     
-                   registerAPI(name ?? "",
-                               birthDate ?? "",
-                               cpf ?? "",
-                               cellphone ?? "",
-                               email ?? "",
-                               password ?? "",
-                               street ?? "",
-                               cep ?? "",
-                               district ?? "",
-                               city ?? "",
-                               state ?? "")
+                   APIPost(["name": name as Any,
+                            "birthDate": birthDate as Any,
+                            "cpf": cpf as Any,
+                            "cellPhone": cellPhone as Any,
+                            "email": email as Any,
+                            "password": password as Any,
+                            "street": street as Any,
+                            "cep": cep as Any,
+                            "district": district as Any,
+                            "city": city as Any,
+                            "state": state as Any])
                        
                    registerCoreData(name,
                                     cpf,
@@ -341,34 +341,18 @@ extension RegisterView {
                                     cep,
                                     street,
                                     city,
-                                    cellphone,
+                                    cellPhone,
                                     email,
                                     password,
                                     clientType,
                                     monthlyIncome,
                                     accountType)
                        
-                   registerFinalAlert("Parabéns",
+                   finalAlert("Parabéns",
                               "Seu cadastro foi concluido com sucesso!",
-                              "Ok")
+                              "Ok",
+                              LoginView(nibName: "LoginView", bundle: nil))
             }
         }
-    }
-    
-    func registerFinalAlert(_ messageTitle: String,
-                    _ message: String,
-                    _ buttonTitle: String) {
-        
-        let alert = UIAlertController(title: messageTitle, message: message, preferredStyle: .alert)
-        let loginView = LoginView(nibName: "LoginView", bundle: nil)
-        loginView.modalPresentationStyle = .fullScreen
-        
-        let alertAction = UIAlertAction(title: buttonTitle, style: .default){action in
-            
-            self.present(loginView, animated: true, completion: nil)
-        }
-        alert.addAction(alertAction)
-        
-        present(alert, animated: true, completion: nil)
     }
 }
