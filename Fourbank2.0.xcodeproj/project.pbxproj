@@ -28,7 +28,6 @@
 		14157ECD285FEE1500C42CBB /* PaymentViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14157ECB285FEE1500C42CBB /* PaymentViewCell.xib */; };
 		14157ED4286001DE00C42CBB /* PaymentConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14157ED2286001DE00C42CBB /* PaymentConfirmView.swift */; };
 		14157ED5286001DE00C42CBB /* PaymentConfirmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14157ED3286001DE00C42CBB /* PaymentConfirmView.xib */; };
-		1424964E2863A010005F9C82 /* PerfilViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1424964D2863A010005F9C82 /* PerfilViewModel.swift */; };
 		142498BE2852BACE005E9D2A /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 142498BD2852BACE005E9D2A /* LoginView.xib */; };
 		1432CC3F285CA08D00122B9A /* BarCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1432CC3E285CA08D00122B9A /* BarCodeView.swift */; };
 		1432CC42285CA5B300122B9A /* CardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1432CC41285CA5B300122B9A /* CardViewCell.swift */; };
@@ -47,6 +46,7 @@
 		1473F1CA285399860072A9A1 /* HistoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1473F1C8285399860072A9A1 /* HistoryView.xib */; };
 		1473F1D12853AAB40072A9A1 /* HistoryCellUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1473F1CF2853AAB40072A9A1 /* HistoryCellUtils.swift */; };
 		1473F1D22853AAB40072A9A1 /* HistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1473F1D02853AAB40072A9A1 /* HistoryCell.xib */; };
+		14820A9B286CA92F00752AA8 /* ViewModel in Resources */ = {isa = PBXBuildFile; fileRef = 14820A9A286CA92F00752AA8 /* ViewModel */; };
 		149DE6A22858D1EA0033FC90 /* AlertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149DE6A12858D1EA0033FC90 /* AlertUtils.swift */; };
 		14A4F82F286091CC00411F94 /* PixController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A4F82E286091CC00411F94 /* PixController.swift */; };
 		14A666A528554F530013037A /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A666A328554F530013037A /* CardView.swift */; };
@@ -93,7 +93,6 @@
 		14157ECB285FEE1500C42CBB /* PaymentViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentViewCell.xib; sourceTree = "<group>"; };
 		14157ED2286001DE00C42CBB /* PaymentConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentConfirmView.swift; sourceTree = "<group>"; };
 		14157ED3286001DE00C42CBB /* PaymentConfirmView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentConfirmView.xib; sourceTree = "<group>"; };
-		1424964D2863A010005F9C82 /* PerfilViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PerfilViewModel.swift; path = Fourbank/Perfil/ViewModel/PerfilViewModel.swift; sourceTree = SOURCE_ROOT; };
 		142498BD2852BACE005E9D2A /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		1432CC3E285CA08D00122B9A /* BarCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeView.swift; sourceTree = "<group>"; };
 		1432CC41285CA5B300122B9A /* CardViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewCell.swift; sourceTree = "<group>"; };
@@ -111,6 +110,7 @@
 		1473F1C8285399860072A9A1 /* HistoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryView.xib; sourceTree = "<group>"; };
 		1473F1CF2853AAB40072A9A1 /* HistoryCellUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCellUtils.swift; sourceTree = "<group>"; };
 		1473F1D02853AAB40072A9A1 /* HistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryCell.xib; sourceTree = "<group>"; };
+		14820A9A286CA92F00752AA8 /* ViewModel */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ViewModel; sourceTree = "<group>"; };
 		149DE6A12858D1EA0033FC90 /* AlertUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertUtils.swift; sourceTree = "<group>"; };
 		14A4F82E286091CC00411F94 /* PixController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixController.swift; sourceTree = "<group>"; };
 		14A666A328554F530013037A /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -118,7 +118,7 @@
 		14AA160328521C4100D5D4DC /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
 		14AA160428521C4100D5D4DC /* UIColor+Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Random.swift"; sourceTree = "<group>"; };
 		14AA160528521C4100D5D4DC /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
-		14DF47CC2864D8D5006B7088 /* PaymentConfirmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PaymentConfirmViewModel.swift; path = Fourbank/PixArea/PaymentConfirmViewModel.swift; sourceTree = SOURCE_ROOT; };
+		14DF47CC2864D8D5006B7088 /* PaymentConfirmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PaymentConfirmViewModel.swift; path = Fourbank/PaymentConfirm/ViewModel/PaymentConfirmViewModel.swift; sourceTree = SOURCE_ROOT; };
 		14F1FA852854C99300FC5422 /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
 		14F1FA882854D49E00FC5422 /* MenuOptionsCellUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOptionsCellUtils.swift; sourceTree = "<group>"; };
 		14F1FA892854D49E00FC5422 /* MenuOptionsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuOptionsCell.xib; sourceTree = "<group>"; };
@@ -259,7 +259,7 @@
 		14157ECE2860014700C42CBB /* PaymentConfirm */ = {
 			isa = PBXGroup;
 			children = (
-				14157ED12860019B00C42CBB /* ViewModel */,
+				14820A9C286CA95E00752AA8 /* ViewModel */,
 				14157ED02860019700C42CBB /* View */,
 			);
 			path = PaymentConfirm;
@@ -275,14 +275,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		14157ED12860019B00C42CBB /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				14DF47CC2864D8D5006B7088 /* PaymentConfirmViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		14157ED62860021D00C42CBB /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,15 +282,6 @@
 				14157ECA285FEE1500C42CBB /* PaymentViewCell.swift */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		1424964928639FCD005F9C82 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				1424964D2863A010005F9C82 /* PerfilViewModel.swift */,
-			);
-			name = ViewModel;
-			path = View/ViewModel;
 			sourceTree = "<group>";
 		};
 		1432CC40285CA58300122B9A /* Cell */ = {
@@ -345,7 +328,7 @@
 		1469D12A285A565600A860DA /* Perfil */ = {
 			isa = PBXGroup;
 			children = (
-				1424964928639FCD005F9C82 /* ViewModel */,
+				14820A9A286CA92F00752AA8 /* ViewModel */,
 				1469D12B285A565D00A860DA /* View */,
 			);
 			path = Perfil;
@@ -364,9 +347,7 @@
 		146A476E28639A56002E2CDC /* PixArea */ = {
 			isa = PBXGroup;
 			children = (
-				146A477128639A76002E2CDC /* ViewModel */,
 				146A476F28639A6A002E2CDC /* View */,
-				146A477028639A71002E2CDC /* Model */,
 			);
 			path = PixArea;
 			sourceTree = "<group>";
@@ -378,20 +359,6 @@
 				14077DDD2863D1B400CEFEB2 /* PixAreaView.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		146A477028639A71002E2CDC /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		146A477128639A76002E2CDC /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		146D0B98286358F500D1B924 /* PixRegister */ = {
@@ -445,6 +412,14 @@
 				1473F1C8285399860072A9A1 /* HistoryView.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		14820A9C286CA95E00752AA8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				14DF47CC2864D8D5006B7088 /* PaymentConfirmViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		14A4F82D286091BB00411F94 /* ViewModel */ = {
@@ -711,6 +686,7 @@
 				09109EBC2861ECAC0038DCD6 /* PerfilViewCell.xib in Resources */,
 				143F85C42852C39100373653 /* NewsView.xib in Resources */,
 				14140D832852E1650050ABB4 /* RegisterView.xib in Resources */,
+				14820A9B286CA92F00752AA8 /* ViewModel in Resources */,
 				14140D812852DE780050ABB4 /* HomeView.xib in Resources */,
 				14F1FA8B2854D49E00FC5422 /* MenuOptionsCell.xib in Resources */,
 				14157ED5286001DE00C42CBB /* PaymentConfirmView.xib in Resources */,
@@ -760,7 +736,6 @@
 				0921E8122857AFB800C6B63D /* LoginModel.swift in Sources */,
 				146D0B9D28635B8B00D1B924 /* PixRegisterView.swift in Sources */,
 				143711BF285B647B008AD17E /* QrCodeView.swift in Sources */,
-				1424964E2863A010005F9C82 /* PerfilViewModel.swift in Sources */,
 				3634509F2852389E00E00BAD /* ApiViewModel.swift in Sources */,
 				14A4F82F286091CC00411F94 /* PixController.swift in Sources */,
 				14DF47CD2864D8D5006B7088 /* PaymentConfirmViewModel.swift in Sources */,
