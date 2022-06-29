@@ -55,9 +55,6 @@ class PerfilView: PerfilViewModel {
                                      dataToModify ?? 0,
                                      dataTextField.text ?? "") {
             APIPut(user, parameters)
-            self.alert(messageTitle: "Sucesso",
-                       message: "Você alterou \(self.perfilData[self.dataToModify ?? 0][0]) com sucesso",
-                       buttonTitle: "Ok")
             
             APIRequest(user) {user in
                 

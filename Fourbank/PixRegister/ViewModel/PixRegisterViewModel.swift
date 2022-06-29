@@ -12,7 +12,7 @@ import UIKit
 class PixRegisterViewModel: UIViewController {
     
     func randomPixKeyGeneratorAPI(_ id: String,
-                                  _ users: [User]) {
+                                  _ users: [User]) -> [String: Any] {
     var newRandowKey = ""
 
         repeat {
@@ -26,84 +26,49 @@ class PixRegisterViewModel: UIViewController {
             }
         } while newRandowKey == ""
 
-        let parameter: [String: Any] = ["randowKeyPix": newRandowKey]
-
-        AF.request("https://62baed237bdbe01d52938975.mockapi.io/api/users/\(id)",
-                   method: .put,
-                   parameters: parameter,
-                   encoding: JSONEncoding.default).responseJSON {response in
-            
-            self.alert(messageTitle: "Sucesso!",
-                            message: "Sua Chave foi cadastrada com sucesso",
-                            buttonTitle: "Ok")
-            print("success")
-        }
+        return ["randowKeyPix": newRandowKey]
     }
     
     func registerPix(_ id: String,
                      _ key: String,
-                     _ users: [User]) {
-        var parameter = ["":""]
+                     _ users: [User]) -> [String: Any]? {
                     
         if self.validateEmail(key) {
             
-            parameter = ["emailPix":key]
-            
             for user in users {
                 
                 if user.emailPix == key {
                     
-                    parameter = ["":""]
+                    return nil
                 }
             }
+            return ["emailPix":key]
         }
         else if self.validateCellPhone(key) {
             
-            parameter = ["cellphonePix":key]
-            
             for user in users {
                 
                 if user.emailPix == key {
                     
-                    parameter = ["":""]
+                    return nil
                 }
             }
+            return ["cellphonePix":key]
         }
         else if self.validateCPF(key) {
             
-            parameter = ["cpfPix":key]
-            
             for user in users {
                 
                 if user.emailPix == key {
                     
-                    parameter = ["":""]
+                    return nil
                 }
             }
+            return ["cpfPix":key]
         }
         else {
             
-            parameter = ["":""]
-        }
-        
-        if parameter != ["":""] {
-            
-            AF.request("https://62baed237bdbe01d52938975.mockapi.io/api/users/\(id)",
-                       method: .put,
-                       parameters: parameter,
-                       encoding: JSONEncoding.default).responseJSON {response in
-                
-                self.alert(messageTitle: "Sucesso!",
-                                message: "Sua Chave foi cadastrada com sucesso",
-                                buttonTitle: "Ok")
-                print("success")
-            }
-        }
-        else {
-            
-            self.alert(messageTitle: "Falha",
-                            message: "Essa chave pix já existe ou voce digitou um valor inválido",
-                            buttonTitle: "Ok")
+            return nil
         }
     }
 }
