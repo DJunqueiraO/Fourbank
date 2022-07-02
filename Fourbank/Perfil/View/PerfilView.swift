@@ -56,6 +56,11 @@ class PerfilView: PerfilViewModel {
                                      dataTextField.text ?? "") {
             APIPut(user, parameters)
             
+            self.alert(messageTitle: "Sucesso",
+                       message: "Dado cadastrado com sucesso",
+                       buttonTitle: "Ok")
+            print("Success")
+            
             APIRequest(user) {user in
                 
                 if let user = user {

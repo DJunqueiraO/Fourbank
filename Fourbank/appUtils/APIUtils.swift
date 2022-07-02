@@ -91,9 +91,6 @@ extension UIViewController {
                    parameters: parameters,
                    encoding: JSONEncoding.default).responseJSON {response in
             
-            self.alert(messageTitle: "Sucesso",
-                       message: "Dados cadastrados com sucesso.",
-                       buttonTitle: "Ok")
             print("Success")
         }
     }
@@ -106,9 +103,6 @@ extension UIViewController {
                    parameters: parameters,
                    encoding: JSONEncoding.default).responseJSON {response in
             
-            self.alert(messageTitle: "Sucesso!",
-                       message: "Dado cadastrado com sucesso",
-                       buttonTitle: "Ok")
             print("Success")
         }
     }
