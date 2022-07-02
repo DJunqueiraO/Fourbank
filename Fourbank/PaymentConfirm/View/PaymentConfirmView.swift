@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PaymentConfirmView: UIViewController, PaymentConfirmViewModel {
+class PaymentConfirmView: PaymentConfirmViewModel {
 
     @IBOutlet weak var tabBar: UITabBar!
     
@@ -51,9 +51,9 @@ class PaymentConfirmView: UIViewController, PaymentConfirmViewModel {
             if let users = users {
                 
                 self.payment(Int(self.paymentValue) ?? 0,
-                                self.user,
-                                self.receiverKey,
-                                users)
+                             self.user,
+                             self.receiverKey,
+                             users)
                     
                 let homeView = HomeView(nibName: "HomeView", bundle: nil)
                 homeView.modalPresentationStyle = .fullScreen
