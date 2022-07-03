@@ -24,7 +24,7 @@ class HomeView: UIViewController{
                                    "note.text",
                                    "creditcard"]
     var user = "",
-        accountBalance = ""
+        accountBalance = 0
     
     override func viewDidLoad() {
         
@@ -34,14 +34,8 @@ class HomeView: UIViewController{
             
             if let user = user {
                 
-                var balance = user.accountBalance
-                self.accountBalance = String(balance)
-                
-                while balance >= 1 {
-                    
-                    self.accountBalanceLabel.text?.append("*")
-                    balance /= 10
-                }
+                self.accountBalance = user.accountBalance
+                self.hideBalance()
             }
         }
         
@@ -57,28 +51,7 @@ class HomeView: UIViewController{
         
         sender.isHidden = true
         
-        accountBalanceLabel.text = "R$ " + accountBalance
-        
-        slashedHideButton.isHidden = false
-    }
-    
-    @IBAction func slashedHideButton(_ sender: UIButton) {
-        
-        sender.isHidden = true
-        
-        accountBalanceLabel.text = ""
-        let balance = Float(accountBalance)
-    
-        if var balance = balance {
-            
-            while balance>=1 {
-                
-                self.accountBalanceLabel.text?.append("*")
-                balance /= 10
-            }
-        }
-        
-        hideButton.isHidden = false
+        buttonDynamics(sender)
     }
     
     @IBAction func backButton(_ sender: UIBarButtonItem) {
@@ -143,5 +116,34 @@ extension HomeView: UITabBarDelegate {
         perfilView.modalPresentationStyle = .fullScreen
         perfilView.user = user
         present(perfilView, animated: true, completion: nil)
+    }
+}
+
+extension HomeView {
+    
+    func hideBalance() {
+        
+        var balance = self.accountBalance
+        
+        while balance >= 1 {
+            
+            self.accountBalanceLabel.text?.append("*")
+            balance /= 10
+        }
+    }
+    
+    func buttonDynamics(_ button: UIButton) {
+        
+        if button == slashedHideButton {
+            
+            accountBalanceLabel.text = ""
+            hideBalance()
+            hideButton.isHidden = false
+        }
+        else {
+            
+            accountBalanceLabel.text = "R$ \(String(accountBalance)),00"
+            slashedHideButton.isHidden = false
+        }
     }
 }

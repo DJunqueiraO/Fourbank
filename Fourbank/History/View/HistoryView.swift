@@ -13,6 +13,12 @@ class HistoryView: UIViewController, HistoryViewModel {
     @IBOutlet weak var paymentHistoryTableDebited: UITableView!
     @IBOutlet weak var tabBar: UITabBar!
     
+    @IBOutlet weak var accountBalance: UILabel!
+    
+    @IBOutlet weak var savings: UILabel!
+    
+    @IBOutlet weak var yield: UILabel!
+    
     var user = ""
    
     var credited: [String] = []
@@ -22,17 +28,7 @@ class HistoryView: UIViewController, HistoryViewModel {
         
         super.viewDidLoad()
         
-        APIRequest(user) {user in
-            
-            if let user = user {
-                
-                self.credited = self.arrayToStringConverter(user.credited)
-                self.debited = self.arrayToStringConverter(user.debited)
-                
-                self.paymentHistoryTableCredited.reloadData()
-                self.paymentHistoryTableDebited.reloadData()
-            }
-        }
+        APIRequest(user) {user in self.loadData(user)}
         
         tabBar.delegate = self
         
@@ -112,6 +108,31 @@ extension HistoryView: UITabBarDelegate {
                 homeView.modalPresentationStyle = .fullScreen
                 homeView.user = user
                 present(homeView, animated: true, completion: nil)
+        }
+    }
+}
+
+extension HistoryView {
+    
+    func loadData(_ user: User?) {
+        
+        if let user = user {
+            
+            self.accountBalance.text = "R$ \(String(user.accountBalance)),00"
+            
+            self.savings.text = "R$ \(String(user.accountBalance)),00"
+            
+            if user.accountBalance > 0 {
+                
+                self.yield.textColor = .systemGreen
+                self.yield.text = "+R$ \(String(Float(user.accountBalance)*0.005))0 este mes"
+            }
+            
+            self.credited = self.arrayToStringConverter(user.credited)
+            self.debited = self.arrayToStringConverter(user.debited)
+            
+            self.paymentHistoryTableCredited.reloadData()
+            self.paymentHistoryTableDebited.reloadData()
         }
     }
 }
