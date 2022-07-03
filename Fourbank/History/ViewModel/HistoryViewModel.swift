@@ -29,6 +29,7 @@ extension HistoryViewModel {
                 word = ""
             }
             else {
+                
                 word.append(char)
             }
         }

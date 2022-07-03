@@ -30,6 +30,9 @@ class PixRegisterView: PixRegisterViewModel{
                 self.APIPut(self.user,
                             self.randomPixKeyGeneratorAPI(self.user,
                                                           users))
+                self.alert(messageTitle: "Sucesso",
+                           message: "Chave cadastrada com sucesso",
+                           buttonTitle: "Ok")
             }
         }
     }
@@ -47,6 +50,9 @@ class PixRegisterView: PixRegisterViewModel{
                                                         users) {
                         self.APIPut(self.user,
                                     parameter)
+                        self.alert(messageTitle: "Sucesso",
+                                   message: "Chave cadastrada com sucesso",
+                                   buttonTitle: "Ok")
                     }
                     else {
                         
