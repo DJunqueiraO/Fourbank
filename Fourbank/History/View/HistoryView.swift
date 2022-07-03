@@ -13,9 +13,6 @@ class HistoryView: UIViewController, HistoryViewModel {
     @IBOutlet weak var paymentHistoryTableDebited: UITableView!
     @IBOutlet weak var tabBar: UITabBar!
     
-    var itens: [[String]] = [["Transferências enviadas", "", ""],
-                             ["Dinheiro resgatado", "", ""],
-                             ["Transferências recebidas", "", ""]]
     var user = ""
    
     var credited: [String] = []
@@ -31,6 +28,9 @@ class HistoryView: UIViewController, HistoryViewModel {
                 
                 self.credited = self.arrayToStringConverter(user.credited)
                 self.debited = self.arrayToStringConverter(user.debited)
+                
+                self.paymentHistoryTableCredited.reloadData()
+                self.paymentHistoryTableDebited.reloadData()
             }
         }
         
@@ -115,31 +115,3 @@ extension HistoryView: UITabBarDelegate {
         }
     }
 }
-
-//                    var word = ""
-//
-//                    for char in data.0 {
-//
-//                        if char == "#" {
-//
-//                            print(word)
-//                            self.credited.append(word)
-//                            word = ""
-//                        }
-//                        else {
-//                            word.append(char)
-//                        }
-//                    }
-//
-//                    for char in data.1 {
-//
-//                        if char == "#" {
-//
-//                            print(word)
-//                            self.debited.append(word)
-//                            word = ""
-//                        }
-//                        else {
-//                            word.append(char)
-//                        }
-//                    }
