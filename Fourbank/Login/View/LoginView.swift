@@ -50,7 +50,7 @@ class LoginView: UIViewController, LoginController {
         }
         else {
             
-            let registerView = RegisterView(nibName: "RegisterView", bundle: nil)
+            let registerView = RegisterView()
             registerView.modalPresentationStyle = .fullScreen
             present(registerView, animated: true, completion: nil)
         }

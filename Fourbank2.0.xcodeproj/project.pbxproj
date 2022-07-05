@@ -19,7 +19,6 @@
 		140BC9FD28569947000142FB /* PixView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 140BC9FB28569947000142FB /* PixView.xib */; };
 		1410D98128662A6F00866E10 /* ValidateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1410D98028662A6F00866E10 /* ValidateUtils.swift */; };
 		14140D812852DE780050ABB4 /* HomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14140D802852DE780050ABB4 /* HomeView.xib */; };
-		14140D832852E1650050ABB4 /* RegisterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14140D822852E1650050ABB4 /* RegisterView.xib */; };
 		14157EC6285FC0F500C42CBB /* PixViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14157EC4285FC0F500C42CBB /* PixViewCell.swift */; };
 		14157EC7285FC0F500C42CBB /* PixViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14157EC5285FC0F500C42CBB /* PixViewCell.xib */; };
 		14157EC8285FC91B00C42CBB /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AA160328521C4100D5D4DC /* ViewCode.swift */; };
@@ -86,7 +85,6 @@
 		140BC9FB28569947000142FB /* PixView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PixView.xib; sourceTree = "<group>"; };
 		1410D98028662A6F00866E10 /* ValidateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateUtils.swift; sourceTree = "<group>"; };
 		14140D802852DE780050ABB4 /* HomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeView.xib; sourceTree = "<group>"; };
-		14140D822852E1650050ABB4 /* RegisterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterView.xib; sourceTree = "<group>"; };
 		14157EC4285FC0F500C42CBB /* PixViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixViewCell.swift; sourceTree = "<group>"; };
 		14157EC5285FC0F500C42CBB /* PixViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PixViewCell.xib; sourceTree = "<group>"; };
 		14157ECA285FEE1500C42CBB /* PaymentViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewCell.swift; sourceTree = "<group>"; };
@@ -569,7 +567,6 @@
 		1D17376C2847EA7100EE9DDF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				14140D822852E1650050ABB4 /* RegisterView.xib */,
 				1D1737702847EAB000EE9DDF /* RegisterView.swift */,
 			);
 			path = View;
@@ -693,7 +690,6 @@
 			files = (
 				09109EBC2861ECAC0038DCD6 /* PerfilViewCell.xib in Resources */,
 				143F85C42852C39100373653 /* NewsView.xib in Resources */,
-				14140D832852E1650050ABB4 /* RegisterView.xib in Resources */,
 				14140D812852DE780050ABB4 /* HomeView.xib in Resources */,
 				14F1FA8B2854D49E00FC5422 /* MenuOptionsCell.xib in Resources */,
 				14157ED5286001DE00C42CBB /* PaymentConfirmView.xib in Resources */,
