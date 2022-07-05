@@ -11,12 +11,15 @@ import Alamofire
 import UIKit
 
 extension UIViewController {
-
+    
+    func urlRead() -> String {
+        
+        return "https://62baed237bdbe01d52938975.mockapi.io/api/users"
+    }
+    
     func APIFullRequest(completion: @escaping ([User]?) -> Void) {
-
-        let url = "https://62baed237bdbe01d52938975.mockapi.io/api/users"
-
-        AF.request(url).responseJSON {response in
+        
+        AF.request(urlRead()).responseJSON {response in
 
             if let data = response.data {
 
@@ -39,9 +42,7 @@ extension UIViewController {
     func APIRequest(_ id: String,
                     completion: @escaping (User?) -> Void) {
 
-        let url = "https://62baed237bdbe01d52938975.mockapi.io/api/users/\(id)"
-
-        AF.request(url).responseJSON {response in
+        AF.request("\(urlRead())/\(id)").responseJSON {response in
 
             if let data = response.data {
 
@@ -61,32 +62,9 @@ extension UIViewController {
         }
     }
     
-    func validateUserOnAPI(_ cpf: String,
-                           _ completion: @escaping (Bool) -> Void) {
-        var result = true
-        
-        APIFullRequest {users in
-            
-            if let users = users {
-                
-                for user in users {
-                    
-                    if user.cpf == cpf {
-                        
-                        self.alert(messageTitle: "Falha",
-                                   message: "Este CPF já existe.",
-                                   buttonTitle: "Ok")
-                        result = false
-                    }
-                }
-                completion(result)
-            }
-        }
-    }
-    
     func APIPost(_ parameters: [String: Any]) {
 
-        AF.request("https://62baed237bdbe01d52938975.mockapi.io/api/users",
+        AF.request(urlRead(),
                    method: .post,
                    parameters: parameters,
                    encoding: JSONEncoding.default).responseJSON {response in
@@ -98,53 +76,13 @@ extension UIViewController {
     func APIPut(_ id: String,
                 _ parameters: [String: Any]) {
 
-        AF.request("https://62baed237bdbe01d52938975.mockapi.io/api/users/\(id)",
+        AF.request("\(urlRead())/\(id)",
                    method: .put,
                    parameters: parameters,
                    encoding: JSONEncoding.default).responseJSON {response in
             
             print("Success")
         }
-    }
-}
-
-extension UIViewController {
-    
-    func validateUserCoreData(_ cpf: String) -> Bool {
-
-        var users: [NSManagedObject] = []
-
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return false}
-
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "UserCoreData")
-
-        do {
-            users = try managedContext.fetch(fetchRequest)
-
-            for user in users {
-
-                if user.value(forKey: "cpf") as? String != nil {
-
-                    if cpf == user.value(forKey: "cpf") as? String {
-                        
-                        alert(messageTitle: "Falha no cadastro",
-                                   message: "O CPF já foi cadastrado.",
-                                   buttonTitle: "Ok")
-                        return false
-                    }
-                }
-            }
-        }
-        catch let error as NSError {
-            
-            alert(messageTitle: "Falha no cadastro",
-                       message: "Erro: \(error)",
-                       buttonTitle: "Ok")
-            print(error)
-            return false
-        }
-        return true
     }
 }
 
